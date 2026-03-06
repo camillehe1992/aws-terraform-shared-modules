@@ -1,1 +1,85 @@
-# aws-terraform-shared-modules
+# AWS Terraform Shared Modules
+
+A overview description for the repository
+
+## Available Shared Modules
+
+| Module Name     | Description                     |
+| --------------- | ------------------------------- |
+| module-template | A template module for Terraform |
+
+## Module Usage
+
+Use below code to include the module-template in your Terraform configuration:
+
+```hcl
+module "demo" {
+  source = "github.com/heyachao/aws-terraform-shared-modules//shared-modules/module-template"
+  name   = "world"
+}
+
+output "greeting" {
+  value = module.demo.greeting
+}
+```
+
+## Get Started
+
+### Setup Development Environment
+
+For local development, you need to install the following tools:
+
+- Terraform: [Official Installation Guide](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+- AWS CLI: [Official Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- just: [Official Installation Guide](https://github.com/casey/just#installation)
+- markdownlint-cli: [Official Installation Guide](https://github.com/DavidAnson/markdownlint-cli#installation)
+- terraform-docs: [Official Installation Guide](https://terraform-docs.io/user-guide/installation/)
+- pre-commit: [Official Installation Guide](https://pre-commit.com/#install)
+
+For MacOS users, you can use Homebrew to install Terraform and AWS CLI and other necessary packages using `brew` as below:
+
+  ```bash
+  brew install awscli terraform just markdownlint-cli terraform-docs pre-commit
+  ```
+
+After installation, you need to set up AWS credentials for Terraform to use. Please follow the [Official Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html).
+
+### Clone the Repository
+
+1. Clone the repository: `git clone https://github.com/heyachao/aws-terraform-shared-modules.git`
+2. Navigate to the repository directory: `cd aws-terraform-shared-modules`
+3. Initialize Terraform: `terraform init`
+4. Apply the Terraform configuration: `terraform apply`
+
+### Just Recipes
+
+We use `just` to manage common tasks. Please refer to the `justfile` for available recipes.
+
+Basic Recipes:
+
+- `just help`: Show help message for available recipes
+- `just version`: Show version information for installed tools
+- `just clean`: Clean up generated files
+
+Terraform Commands:
+
+- `just test`: Run Terraform tests using `terraform validate`
+- `just docs`: Generate Terraform documentation using `terraform-docs`
+- `just lint`: Lint Terraform code using `terraform fmt` and lint README.md using `markdownlint`
+- `just validate <unit-name>`: Validate Terraform code using `terraform validate`
+- `just init <unit-name>`: Initialize Terraform in the `unit-name` directory
+- `just plan <unit-name>`: Show Terraform plan for the `unit-name` directory
+- `just apply <unit-name>`: Apply Terraform configuration in the `unit-name` directory
+- `just destroy <unit-name>`: Destroy Terraform resources in the `unit-name` directory
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## References
+
+- [Terraform Documentation](https://www.terraform.io/docs/index.html)
+- [AWS CLI Documentation](https://docs.aws.amazon.com/cli/latest/userguide/index.html)
+- [just Documentation](https://github.com/casey/just#readme)
+- [markdownlint-cli Documentation](https://github.com/DavidAnson/markdownlint-cli#readme)
+- [terraform-docs Documentation](https://terraform-docs.io/user-guide/installation/)
