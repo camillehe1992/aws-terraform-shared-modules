@@ -64,6 +64,7 @@ init UNIT:
 
 plan UNIT:
     #!/usr/bin/env bash
+    just init {{UNIT}}
     PROFILE=$(just aws-profile)
     TF_DIR=$(just tf-unit-dir {{UNIT}})
     echo "[*] Planning - Terraform Unit ${TF_DIR}"
@@ -78,6 +79,7 @@ apply UNIT:
 
 destroy UNIT:
     #!/usr/bin/env bash
+    just init {{UNIT}}
     PROFILE=$(just aws-profile)
     TF_DIR=$(just tf-unit-dir {{UNIT}})
     echo "[*] Destroying - Terraform Unit ${TF_DIR}"
@@ -89,7 +91,7 @@ plan-apply UNIT:
     PROFILE=$(just aws-profile)
     TF_DIR=$(just tf-unit-dir {{UNIT}})
     echo "[*] Planning and Applying - Terraform Unit ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE}  terraform apply -auto-approve -input=false
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform apply -auto-approve -input=false tfplan
 
 validate UNIT:
     #!/usr/bin/env bash
