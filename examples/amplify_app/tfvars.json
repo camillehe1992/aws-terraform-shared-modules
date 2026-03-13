@@ -1,0 +1,28 @@
+{
+  "framework": "Vue",
+  "tags": {
+    "project": "aws-amplify-platform",
+    "nickname": "amplify-vue-app",
+    "repository": "https://github.com/camillehe1992/amplify-vue-app"
+  },
+  "name_prefix": "amplify-vue-app",
+  "repository": "https://github.com/camillehe1992/amplify-vue-app",
+  "branch_config": {
+    "develop": {
+      "enabled": true,
+      "environment": "develop",
+      "branch_name": "develop",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {}
+    },
+    "production": {
+      "enabled": true,
+      "environment": "production",
+      "branch_name": "main",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {}
+    }
+  }
+}

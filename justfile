@@ -7,6 +7,7 @@ PROJECT_ROOT := `pwd`
 
 # Shell to use
 set shell := ["bash", "-uc"]
+set dotenv-load := true
 
 # ------------------------------------------------------------------------------
 # Helper functions (as recipes)
@@ -15,11 +16,12 @@ versions:
     #!/usr/bin/env bash
     echo "Show version information for installed tools..."
     echo "Terraform version: $(terraform version)"
-    echo "AWS Version $(aws --version)"
-    which terraform
+    echo "AWS version $(aws --version)"
     echo "markdownlint-cli version: $(markdownlint --version)"
     echo "terraform-docs version: $(terraform-docs --version)"
     echo "pre-commit version: $(pre-commit -V)"
+    echo "checkov version: $(checkov --version)"
+    echo "trivy version: $(trivy --version)"
 
 # Get AWS profile from .env or fallback to "app-deployer"
 aws-profile:
@@ -74,13 +76,26 @@ init UNIT:
     echo "[*] Initializing - Terraform Unit ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform init -input=false
 
+tf-options UNIT:
+    #!/usr/bin/env bash
+    # if tfvars.json exist, use it
+    TF_DIR=$(just tf-unit-dir {{UNIT}})
+    if [ -f "${TF_DIR}/tfvars.json" ]; then
+        VAR_OPTIONS="-var-file=${TF_DIR}/tfvars.json"
+    else
+        VAR_OPTIONS=""
+    fi
+    echo "${VAR_OPTIONS}"
+
 plan UNIT:
     #!/usr/bin/env bash
     just init {{UNIT}}
     PROFILE=$(just aws-profile)
     TF_DIR=$(just tf-unit-dir {{UNIT}})
+    VAR_OPTIONS=$(just tf-options {{UNIT}})
     echo "[*] Planning - Terraform Unit ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan -input=false -out=tfplan
+
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan ${VAR_OPTIONS} -input=false -out=tfplan
 
 apply UNIT:
     #!/usr/bin/env bash
@@ -94,16 +109,14 @@ destroy UNIT:
     just init {{UNIT}}
     PROFILE=$(just aws-profile)
     TF_DIR=$(just tf-unit-dir {{UNIT}})
+    VAR_OPTIONS=$(just tf-options {{UNIT}})
     echo "[*] Destroying - Terraform Unit ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform destroy -auto-approve -input=false
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform destroy ${VAR_OPTIONS} -auto-approve -input=false
 
 plan-apply UNIT:
     #!/usr/bin/env bash
     just plan {{UNIT}}
-    PROFILE=$(just aws-profile)
-    TF_DIR=$(just tf-unit-dir {{UNIT}})
-    echo "[*] Planning and Applying - Terraform Unit ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform apply -auto-approve -input=false tfplan
+    just apply {{UNIT}}
 
 validate UNIT:
     #!/usr/bin/env bash

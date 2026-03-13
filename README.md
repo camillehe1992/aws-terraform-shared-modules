@@ -4,13 +4,13 @@ A overview description for the repository
 
 ## Available Shared Modules
 
-| Module Name                                                               | Description                          |
-| ------------------------------------------------------------------------- | ------------------------------------ |
-| [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)           | Create eventbridge rule with targets |
-| [iam_role](./shared-modules/iam_role/README.md)                           | Create IAM role with policies        |
-| [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | Create secret with version           |
-| [security_group](./shared-modules/security_group/README.md)               | Create security group with rules     |
-| [sns_topic](./shared-modules/sns_topic/README.md)                         | Create SNS topic with subscriptions  |
+| Module Name                                                               | Example                                                             | Description                          |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------ |
+| [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)           | [eventbridge_rule](./examples/eventbridge_rule/README.md)           | Create eventbridge rule with targets |
+| [iam_role](./shared-modules/iam_role/README.md)                           | [iam_role](./examples/iam_role/README.md)                           | Create IAM role with policies        |
+| [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | [secretsmanager_secret](./examples/secretsmanager_secret/README.md) | Create secret with version           |
+| [security_group](./shared-modules/security_group/README.md)               | [security_group](./examples/security_group/README.md)               | Create security group with rules     |
+| [sns_topic](./shared-modules/sns_topic/README.md)                         |                                                                     | Create SNS topic with subscriptions  |
 
 ## Module Usage
 
@@ -43,8 +43,10 @@ For local development, you need to install the following tools:
 For MacOS users, you can use Homebrew to install Terraform and AWS CLI and other necessary packages using `brew` as below:
 
   ```bash
-  brew install awscli terraform just markdownlint-cli terraform-docs pre-commit
+  brew install awscli terraform just markdownlint-cli terraform-docs pre-commit checkov trivy
   ```
+
+Then run `just version` to verify the installation.
 
 After installation, you need to set up AWS credentials for Terraform to use. Please follow the [Official Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html).
 
