@@ -48,6 +48,18 @@ tf-unit-dir UNIT:
 # Core commands
 # ------------------------------------------------------------------------------
 
+init-module UNIT:
+    #!/usr/bin/env bash
+    echo "[*] Initializing - New Terraform Module"
+    cp -r shared-modules/_module_template shared-modules/{{UNIT}}
+    cp -r examples/_example_template examples/{{UNIT}}
+
+remove-module UNIT:
+    #!/usr/bin/env bash
+    echo "[*] Removing - Terraform Module {{UNIT}}"
+    rm -rf shared-modules/{{UNIT}}
+    rm -rf examples/{{UNIT}}
+
 # Pre-check - Verify AWS credentials
 pre-check:
     #!/usr/bin/env bash

@@ -4,9 +4,13 @@ A overview description for the repository
 
 ## Available Shared Modules
 
-| Module Name     | Description                     |
-| --------------- | ------------------------------- |
-| module-template | A template module for Terraform |
+| Module Name                                                               | Description                          |
+| ------------------------------------------------------------------------- | ------------------------------------ |
+| [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)           | Create eventbridge rule with targets |
+| [iam_role](./shared-modules/iam_role/README.md)                           | Create IAM role with policies        |
+| [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | Create secret with version           |
+| [security_group](./shared-modules/security_group/README.md)               | Create security group with rules     |
+| [sns_topic](./shared-modules/sns_topic/README.md)                         | Create SNS topic with subscriptions  |
 
 ## Module Usage
 
@@ -46,10 +50,22 @@ After installation, you need to set up AWS credentials for Terraform to use. Ple
 
 ### Clone the Repository
 
-1. Clone the repository: `git clone https://github.com/heyachao/aws-terraform-shared-modules.git`
-2. Navigate to the repository directory: `cd aws-terraform-shared-modules`
-3. Initialize Terraform: `terraform init`
-4. Apply the Terraform configuration: `terraform apply`
+```bash
+git clone https://github.com/heyachao/aws-terraform-shared-modules.git
+cd aws-terraform-shared-modules
+```
+
+Init a new module using `just init-module` recipe as below:
+
+```bash
+just init-module <module-name>
+```
+
+Clean up generated modules files and example files using `just remove-module` recipe as below:
+
+```bash
+just remove-module <module-name>
+```
 
 ### Just Recipes
 
