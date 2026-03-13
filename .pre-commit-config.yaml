@@ -11,15 +11,15 @@ repos:
         name: Terraform Format
         description: Format Terraform files
 
-      # - id: terraform_validate
-      #   name: Terraform Validate
-      #   description: Validate Terraform syntax
-      #   args:
-      #     - --args=-json
-      #     - --args=-no-color
-      #     - --args=-backend=false # skip backend config
-      #     - --hook-config=--retry-once-with-cleanup=true
-      #   verbose: false # reduce output
+      - id: terraform_validate
+        name: Terraform Validate
+        description: Validate Terraform syntax
+        args:
+          - --args=-json
+          - --args=-no-color
+          - --args=-backend=false # skip backend config
+          - --hook-config=--retry-once-with-cleanup=true
+        verbose: false # reduce output
 
       - id: terraform_tflint
         name: Terraform TFLint
