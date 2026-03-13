@@ -130,11 +130,11 @@ fmt:
     echo "Formatting shared-modules..."
     for dir in shared-modules/*; do if [ -d "$dir" ]; then (cd "$dir" && terraform fmt -recursive); fi; done
 
-lint:
+fmt-validate:
     #!/usr/bin/env bash
-    echo "Linting examples..."
+    echo "Formatting and validating examples..."
     for dir in examples/*; do if [ -d "$dir" ]; then (cd "$dir" && terraform fmt -check -recursive && terraform init -backend=false -input=false && terraform validate); fi; done
-    echo "Linting shared-modules..."
+    echo "Formatting and validating shared-modules..."
     for dir in shared-modules/*; do if [ -d "$dir" ]; then (cd "$dir" && terraform fmt -check -recursive && terraform init -backend=false -input=false && terraform validate); fi; done
 
 clean:
