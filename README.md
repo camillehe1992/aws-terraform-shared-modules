@@ -120,6 +120,12 @@ __Terraform Recipes:__
 - `just fmt-all`: Format all Terraform files using `terraform fmt`
 - `just gen-docs`: Generate Terraform documentation using `terraform-docs`
 
+## Release Process
+
+Use GitHub Actions to release new versions of the modules. Please refer to the [tag-and-release.yml](./.github/workflows/tag-and-release.yml) workflow for release process.
+
+The workflow uses [https://github.com/mathieudutour/github-tag-action](https://github.com/mathieudutour/github-tag-action) as the core component to create tag version and release which is semantic versioning based on the commit messages.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
