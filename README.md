@@ -18,7 +18,7 @@ Use below code to include the module-template in your Terraform configuration:
 
 ```hcl
 module "demo" {
-  source = "github.com/heyachao/aws-terraform-shared-modules//shared-modules/module-template"
+  source = "github.com/heyachao/aws-terraform-shared-modules//shared-modules/_module-template?ref=v0.1.0"
   name   = "world"
 }
 
@@ -39,6 +39,8 @@ For local development, you need to install the following tools:
 - markdownlint-cli: [Official Installation Guide](https://github.com/DavidAnson/markdownlint-cli#installation)
 - terraform-docs: [Official Installation Guide](https://terraform-docs.io/user-guide/installation/)
 - pre-commit: [Official Installation Guide](https://pre-commit.com/#install)
+- checkov: [Official Installation Guide](https://www.checkov.io/1.Getting%20Started/installation.html)
+- trivy: [Official Installation Guide](https://aquasecurity.github.io/trivy/v0.40/getting-started/installation/)
 
 For MacOS users, you can use Homebrew to install Terraform and AWS CLI and other necessary packages using `brew` as below:
 

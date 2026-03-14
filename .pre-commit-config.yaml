@@ -17,7 +17,6 @@ repos:
         args:
           - --args=-json
           - --args=-no-color
-          - --args=-backend=false # skip backend config
           - --hook-config=--retry-once-with-cleanup=true
         verbose: false # reduce output
 
@@ -27,16 +26,20 @@ repos:
         args:
           - --args=--init
 
-      # - id: terraform_checkov
-      #   name: Terraform Checkov
-      #   description: Static analysis of Terraform
-      #   args:
-      #     - --args=--quiet
-      #     - --args=--soft-fail
+      - id: terraform_checkov
+        name: Terraform Checkov
+        description: Static analysis of Terraform
+        args:
+          - --args=--quiet
+          - --args=--soft-fail
 
-      # - id: terraform_trivy
-      #   name: Terraform Trivy
-      #   description: Vulnerability scanner
+      - id: terraform_trivy
+        name: Terraform Trivy
+        description: Vulnerability scanner
+        args:
+          - --args=--quiet
+          - --args=--soft-fail
+        stages: [push] # Only run on push, not on every commit
 
   - repo: local
     hooks:
