@@ -4,7 +4,6 @@
 ![AWS](https://img.shields.io/badge/AWS-2.11.3%2B-orange.svg)
 [![Release](https://img.shields.io/github/v/release/heyachao/aws-terraform-shared-modules)](https://github.com/heyachao/aws-terraform-shared-modules/releases)
 
-
 The repository contains a collection of reusable Terraform modules for AWS. These modules are designed to help you create and manage AWS resources more efficiently.
 
 ## Available Shared Modules
