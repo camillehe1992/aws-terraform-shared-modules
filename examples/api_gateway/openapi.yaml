@@ -1,0 +1,40 @@
+openapi: 3.0.1
+info:
+  title: ExampleAPI
+  version: 1.0.0
+servers:
+  - url: https://{apiId}.execute-api.{region}.amazonaws.com/{stage}
+    variables:
+      apiId:
+        default: example
+      region:
+        default: ap-southeast-1
+      stage:
+        default: dev
+paths:
+  /hello:
+    get:
+      summary: Return a greeting
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      x-amazon-apigateway-integration:
+        type: aws_proxy
+        httpMethod: POST
+        uri: ${lambda_invoke_arn}
+        passthroughBehavior: when_no_match
+x-amazon-apigateway-cors:
+  allowMethods:
+    - "*"
+  allowHeaders:
+    - "*"
+  allowOrigins:
+    - "*"
+  maxAge: 0

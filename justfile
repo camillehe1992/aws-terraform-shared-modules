@@ -41,7 +41,7 @@ init-module module-name:
     echo "[*] Initializing - Terraform Module {{module-name}}"
     cp -r shared-modules/_template shared-modules/{{module-name}}
     cp -r examples/_template examples/{{module-name}}
-    echo "Module is created"
+    echo "Module {{module-name}} is created"
 
 # Remove a Terraform module
 remove-module module-name:
@@ -49,6 +49,7 @@ remove-module module-name:
     echo "[*] Removing - Terraform Module {{module-name}}"
     rm -rf shared-modules/{{module-name}}
     rm -rf examples/{{module-name}}
+    echo "Module {{module-name}} is removed"
 
 # Show current AWS profile
 aws-profile:
