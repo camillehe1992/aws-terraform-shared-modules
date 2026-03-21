@@ -3,9 +3,10 @@
 Deploy a **public static website** on S3 with:
 
 * S3 Website Hosting (index / error documents)
-* Optional CloudFront CDN (HTTPS, HTTP→HTTPS redirect, global edge cache)
 * CORS, versioning, configurable public-read, forced bucket destroy
 * One-click sample site upload helper
+
+Note: The bucket policy is set to allow public-read access, but you can change this to `private` if you want to restrict access to your website.
 
 ---
 
