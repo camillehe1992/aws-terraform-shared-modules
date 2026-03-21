@@ -18,12 +18,9 @@ set dotenv-load := true
 # ------------------------------------------------------------------------------
 
 # Help for justfile
-help:
-    #!/usr/bin/env bash
-    echo "Usage: just <command> [module-name]"
-    echo "Available commands:"
-    # only show commands that do not start with _
-    just --list --unsorted | grep -v "^\s*#" | grep -v "^\s*$" | grep -v "^_"
+default:
+    @just --list --unsorted
+    @echo "Usage: just <command> [module-name](optional)"
 
 # Show version information for installed tools
 versions:
@@ -44,6 +41,7 @@ init-module module-name:
     echo "[*] Initializing - Terraform Module {{module-name}}"
     cp -r shared-modules/_template shared-modules/{{module-name}}
     cp -r examples/_template examples/{{module-name}}
+    echo "Module is created"
 
 # Remove a Terraform module
 remove-module module-name:
@@ -62,7 +60,7 @@ aws-profile:
 init module-name=default_module:
     #!/usr/bin/env bash
     PROFILE=$(just _aws-profile)
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     echo "[*] Initializing - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform init -input=false
     just validate {{module-name}}
@@ -80,7 +78,7 @@ plan module-name=default_module:
     #!/usr/bin/env bash
     just init {{module-name}}
     PROFILE=$(just _aws-profile)
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     VAR_OPTIONS=$(just _tf-options {{module-name}})
     echo "[*] Planning - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan ${VAR_OPTIONS} -input=false -out=tfplan
@@ -90,16 +88,16 @@ plan-destroy module-name=default_module:
     #!/usr/bin/env bash
     just init {{module-name}}
     PROFILE=$(just _aws-profile)
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     VAR_OPTIONS=$(just _tf-options {{module-name}})
     echo "[*] Plan Destroying - Terraform Module ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan -destroy ${VAR_OPTIONS} -auto-approve -input=false
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan -destroy ${VAR_OPTIONS} -input=false
 
 # Apply Terraform module
 apply module-name=default_module:
     #!/usr/bin/env bash
     PROFILE=$(just _aws-profile)
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     echo "[*] Applying - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform apply -auto-approve -input=false tfplan
     just fmt-all
@@ -107,7 +105,7 @@ apply module-name=default_module:
 # Output Terraform module
 output module-name=default_module:
     #!/usr/bin/env bash
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     echo "[*] Outputting - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && terraform output
 
@@ -174,11 +172,15 @@ _tf-module-dir module-name:
     #!/usr/bin/env bash
     echo "{{PROJECT_ROOT}}/shared-modules/{{module-name}}/"
 
+_tf-example-dir module-name:
+    #!/usr/bin/env bash
+    echo "{{PROJECT_ROOT}}/examples/{{module-name}}/"
+
 # Get Terraform options
 _tf-options module-name=default_module:
     #!/usr/bin/env bash
     # if tfvars.json exist, use it as var-file
-    TF_DIR=$(just _tf-module-dir {{module-name}})
+    TF_DIR=$(just _tf-example-dir {{module-name}})
     if [ -f "${TF_DIR}/tfvars.json" ]; then
         VAR_OPTIONS="-var-file=${TF_DIR}/tfvars.json"
     else
