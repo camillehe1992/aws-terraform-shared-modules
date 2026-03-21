@@ -13,6 +13,7 @@ The repository contains a collection of reusable Terraform modules for AWS. Thes
 | [amplify_app](./shared-modules/amplify_app/README.md)                     | [amplify_app](./examples/amplify_app/README.md)                     | Create Amplify app with backend      |
 | [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)           | [eventbridge_rule](./examples/eventbridge_rule/README.md)           | Create eventbridge rule with targets |
 | [iam_role](./shared-modules/iam_role/README.md)                           | [iam_role](./examples/iam_role/README.md)                           | Create IAM role with policies        |
+| [lambda_function](./shared-modules/lambda_function/README.md)             | [lambda_function](./examples/lambda_function/README.md)             | Create Lambda function with package  |
 | [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | [secretsmanager_secret](./examples/secretsmanager_secret/README.md) | Create secret with version           |
 | [security_group](./shared-modules/security_group/README.md)               | [security_group](./examples/security_group/README.md)               | Create security group with rules     |
 | [sns_topic](./shared-modules/sns_topic/README.md)                         | [sns_topic](./examples/sns_topic/README.md)                         | Create SNS topic with subscriptions  |
@@ -111,7 +112,6 @@ __Terraform Recipes:__
 - `just plan <module-name>`: Plan Terraform module
 - `just plan-destroy <module-name>`: Plan Terraform module with -destroy
 - `just apply <module-name>`: Apply Terraform module
-- `just output <module-name>`: Show Terraform module output
 - `just validate <module-name>`: Validate Terraform module
 
 - `just plan-apply <module-name>`: Plan and apply Terraform module, equivalent to `just plan <module-name> && just apply <module-name>`

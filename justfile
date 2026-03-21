@@ -91,7 +91,7 @@ plan-destroy module-name=default_module:
     TF_DIR=$(just _tf-example-dir {{module-name}})
     VAR_OPTIONS=$(just _tf-options {{module-name}})
     echo "[*] Plan Destroying - Terraform Module ${TF_DIR}"
-    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan -destroy ${VAR_OPTIONS} -input=false
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform plan -destroy ${VAR_OPTIONS} -input=false -out=tfplan
 
 # Apply Terraform module
 apply module-name=default_module:
@@ -101,13 +101,6 @@ apply module-name=default_module:
     echo "[*] Applying - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform apply -auto-approve -input=false tfplan
     just fmt-all
-
-# Output Terraform module
-output module-name=default_module:
-    #!/usr/bin/env bash
-    TF_DIR=$(just _tf-example-dir {{module-name}})
-    echo "[*] Outputting - Terraform Module ${TF_DIR}"
-    cd ${TF_DIR} && terraform output
 
 # Plan and apply Terraform module
 plan-apply module-name=default_module:
