@@ -16,6 +16,7 @@ The repository contains a collection of reusable Terraform modules for AWS. Thes
 | [iam_role](./shared-modules/iam_role/README.md)                           | [iam_role](./examples/iam_role)                           | Create IAM role with policies                           |
 | [lambda_function](./shared-modules/lambda_function/README.md)             | [lambda_function](./examples/lambda_function)             | Create Lambda function with package                     |
 | [lambda_layer](./shared-modules/lambda_layer/README.md)                   | [lambda_layer](./examples/lambda_layer)                   | Create Lambda layer with package                        |
+| [s3_static_website](./shared-modules/s3_static_website/README.md)         | [s3_static_website](./examples/s3_static_website)         | Create S3 bucket with static website hosting            |
 | [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | [secretsmanager_secret](./examples/secretsmanager_secret) | Create secret with version                              |
 | [security_group](./shared-modules/security_group/README.md)               | [security_group](./examples/security_group)               | Create security group with rules                        |
 | [sns_topic](./shared-modules/sns_topic/README.md)                         | [sns_topic](./examples/sns_topic)                         | Create SNS topic with subscriptions                     |
