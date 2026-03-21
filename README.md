@@ -14,6 +14,7 @@ The repository contains a collection of reusable Terraform modules for AWS. Thes
 | [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)           | [eventbridge_rule](./examples/eventbridge_rule/README.md)           | Create eventbridge rule with targets |
 | [iam_role](./shared-modules/iam_role/README.md)                           | [iam_role](./examples/iam_role/README.md)                           | Create IAM role with policies        |
 | [lambda_function](./shared-modules/lambda_function/README.md)             | [lambda_function](./examples/lambda_function/README.md)             | Create Lambda function with package  |
+| [lambda_layer](./shared-modules/lambda_layer/README.md)                   | [lambda_layer](./examples/lambda_layer/README.md)                   | Create Lambda layer with package     |
 | [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md) | [secretsmanager_secret](./examples/secretsmanager_secret/README.md) | Create secret with version           |
 | [security_group](./shared-modules/security_group/README.md)               | [security_group](./examples/security_group/README.md)               | Create security group with rules     |
 | [sns_topic](./shared-modules/sns_topic/README.md)                         | [sns_topic](./examples/sns_topic/README.md)                         | Create SNS topic with subscriptions  |

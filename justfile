@@ -63,7 +63,6 @@ init module-name=default_module:
     TF_DIR=$(just _tf-example-dir {{module-name}})
     echo "[*] Initializing - Terraform Module ${TF_DIR}"
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform init -input=false
-    just validate {{module-name}}
 
 # Validate Terraform module
 validate module-name=default_module:
