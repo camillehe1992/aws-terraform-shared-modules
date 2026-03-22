@@ -147,7 +147,13 @@ lint-md:
 gen-docs:
     #!/usr/bin/env bash
     echo "Generating documentation for shared-modules..."
-    for dir in shared-modules/*; do if [ -d "$dir" ]; then (cd "$dir" && terraform-docs markdown table --output-file README.md --output-mode inject --config ../../.terraform-docs.yaml .); fi; done
+    for dir in shared-modules/*; do
+        if [ -d "$dir" ]; then
+            (cd "$dir"
+            terraform-docs markdown table --output-file README.md --output-mode inject --config ../../.terraform-docs.yaml .
+            sed -i '' 's|examples/REPLACE_ME|examples/'$(basename "$dir")'|g' README.md)
+        fi;
+    done
 
 
 # Private recipes (as recipes)

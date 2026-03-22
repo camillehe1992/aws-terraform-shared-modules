@@ -1,7 +1,4 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
@@ -9,11 +6,6 @@ No requirements.
 |------|---------|
 | <a name="provider_archive"></a> [archive](#provider\_archive) | 2.7.1 |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.37.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -22,7 +14,6 @@ No modules.
 | [aws_lambda_function.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
 | [aws_lambda_permission.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission) | resource |
 | [archive_file.this](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -46,7 +37,6 @@ No modules.
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of Subnet Ids | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
 | <a name="input_timeout"></a> [timeout](#input\_timeout) | The timeout (seconds) of Lambda function | `number` | `60` | no |
-
 ## Outputs
 
 | Name | Description |
@@ -55,4 +45,8 @@ No modules.
 | <a name="output_function_name"></a> [function\_name](#output\_function\_name) | The name of the Lambda function |
 | <a name="output_invoke_arn"></a> [invoke\_arn](#output\_invoke\_arn) | The ARN to be used for invoking the Lambda function from API Gateway |
 | <a name="output_log_group_name"></a> [log\_group\_name](#output\_log\_group\_name) | The name of the CloudWatch Log Group |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/lambda_function](../../examples/lambda_function).
 <!-- END_TF_DOCS -->

@@ -1,17 +1,30 @@
-formatter: ""
+# /Users/heyachao/GitHub/aws-terraform-shared-modules/.terraform-docs.yaml
+formatter: markdown
 version: ""
+
 header-from: main.tf
 footer-from: ""
+
 recursive:
   enabled: false
   path: modules
   include-main: true
+
 sections:
   hide: []
   show: []
-  hide-all: false
-  show-all: true
-content: ""
+
+content: |-
+  {{ .Header }}
+  {{ .Providers }}
+  {{ .Resources }}
+  {{ .Inputs }}
+  {{ .Outputs }}
+
+  ## Examples
+  <!-- terraform-docs gets the path; we strip it manually -->
+  See [examples/REPLACE_ME](../../examples/REPLACE_ME).
+
 output:
   file: ""
   mode: inject
@@ -19,12 +32,15 @@ output:
     <!-- BEGIN_TF_DOCS -->
     {{ .Content }}
     <!-- END_TF_DOCS -->
+
 output-values:
   enabled: false
   from: ""
+
 sort:
   enabled: true
   by: name
+
 settings:
   anchor: true
   color: true

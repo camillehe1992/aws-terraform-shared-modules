@@ -1,18 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.37.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -24,7 +16,6 @@ No modules.
 | [aws_s3_bucket_public_access_block.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_versioning.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning) | resource |
 | [aws_s3_bucket_website_configuration.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -40,7 +31,6 @@ No modules.
 | <a name="input_public_read"></a> [public\_read](#input\_public\_read) | Make bucket contents publicly readable | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to every AWS resource | `map(string)` | `{}` | no |
 | <a name="input_versioning"></a> [versioning](#input\_versioning) | Keep multiple versions of each object | `bool` | `false` | no |
-
 ## Outputs
 
 | Name | Description |
@@ -48,4 +38,8 @@ No modules.
 | <a name="output_bucket_arn"></a> [bucket\_arn](#output\_bucket\_arn) | S3 bucket ARN |
 | <a name="output_bucket_id"></a> [bucket\_id](#output\_bucket\_id) | S3 bucket name |
 | <a name="output_website_endpoint"></a> [website\_endpoint](#output\_website\_endpoint) | S3 website endpoint (http://...) |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/s3_static_website](../../examples/s3_static_website).
 <!-- END_TF_DOCS -->

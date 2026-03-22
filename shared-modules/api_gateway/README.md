@@ -1,18 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.37.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -23,7 +15,6 @@ No modules.
 | [aws_api_gateway_stage.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_stage) | resource |
 | [aws_cloudwatch_log_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
 | [aws_iam_policy_document.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -35,7 +26,6 @@ No modules.
 | <a name="input_retention_in_days"></a> [retention\_in\_days](#input\_retention\_in\_days) | Number of days to retain log events | `number` | `7` | no |
 | <a name="input_stage_name"></a> [stage\_name](#input\_stage\_name) | Stage name of the API Gateway | `string` | `"prod"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to resources | `map(string)` | `{}` | no |
-
 ## Outputs
 
 | Name | Description |
@@ -44,4 +34,8 @@ No modules.
 | <a name="output_execution_arn"></a> [execution\_arn](#output\_execution\_arn) | The ARN of the API Gateway execution |
 | <a name="output_invoke_url"></a> [invoke\_url](#output\_invoke\_url) | The invoke URL for the API Gateway stage |
 | <a name="output_rest_api_id"></a> [rest\_api\_id](#output\_rest\_api\_id) | The ID of the API Gateway REST API |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/api_gateway](../../examples/api_gateway).
 <!-- END_TF_DOCS -->

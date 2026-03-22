@@ -43,27 +43,18 @@ No modules.
 | <a name="output_event_rule_arn"></a> [event\_rule\_arn](#output\_event\_rule\_arn) | ARN of the EventBridge rule |
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.35.1 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_cloudwatch_event_rule.event_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
 | [aws_cloudwatch_event_target.event_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -81,10 +72,13 @@ No modules.
 | <a name="input_sqs_target_specs"></a> [sqs\_target\_specs](#input\_sqs\_target\_specs) | The specifications for the SQS queue to send the message | <pre>object({<br/>    message_group_id = string<br/>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
 | <a name="input_target_arn"></a> [target\_arn](#input\_target\_arn) | The ARN of the target | `string` | n/a | yes |
-
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_event_rule_arn"></a> [event\_rule\_arn](#output\_event\_rule\_arn) | ARN of the EventBridge rule |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/eventbridge_rule](../../examples/eventbridge_rule).
 <!-- END_TF_DOCS -->

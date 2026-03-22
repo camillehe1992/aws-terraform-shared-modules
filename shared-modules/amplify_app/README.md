@@ -1,18 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.36.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -20,7 +12,6 @@ No modules.
 | [aws_amplify_app.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_app) | resource |
 | [aws_amplify_branch.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_branch) | resource |
 | [aws_ssm_parameter.secrets](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -31,10 +22,13 @@ No modules.
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The prefix name of the Amplify app | `string` | n/a | yes |
 | <a name="input_repository"></a> [repository](#input\_repository) | The repository for source code | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
-
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_amplify_app"></a> [amplify\_app](#output\_amplify\_app) | ARN of the Amplify app |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/amplify_app](../../examples/amplify_app).
 <!-- END_TF_DOCS -->

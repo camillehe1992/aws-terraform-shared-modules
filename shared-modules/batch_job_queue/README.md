@@ -1,24 +1,15 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.37.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
 |------|------|
 | [aws_batch_job_queue.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/batch_job_queue) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -29,11 +20,14 @@ No modules.
 | <a name="input_scheduling_policy_arn"></a> [scheduling\_policy\_arn](#input\_scheduling\_policy\_arn) | ARN of the scheduling policy | `string` | `null` | no |
 | <a name="input_state"></a> [state](#input\_state) | State of the job queue (ENABLED or DISABLED) | `string` | `"ENABLED"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to resources | `map(string)` | `{}` | no |
-
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_job_queue_arn"></a> [job\_queue\_arn](#output\_job\_queue\_arn) | ARN of the job queue |
 | <a name="output_job_queue_name"></a> [job\_queue\_name](#output\_job\_queue\_name) | Name of the job queue |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/batch_job_queue](../../examples/batch_job_queue).
 <!-- END_TF_DOCS -->

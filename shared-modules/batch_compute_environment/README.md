@@ -1,7 +1,4 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
@@ -9,11 +6,6 @@ No requirements.
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.37.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.8.1 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -21,7 +13,6 @@ No modules.
 | [aws_batch_compute_environment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/batch_compute_environment) | resource |
 | [aws_placement_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/placement_group) | resource |
 | [random_string.resource_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -41,11 +32,14 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
 | <a name="input_terminate_jobs_on_update"></a> [terminate\_jobs\_on\_update](#input\_terminate\_jobs\_on\_update) | Whether to terminate jobs in the compute environment when it is updated. | `bool` | `true` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC ID that the compute environment is in. | `string` | n/a | yes |
-
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_compute_environment_arn"></a> [compute\_environment\_arn](#output\_compute\_environment\_arn) | ARN of the Batch compute environment |
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | ARN of the ECS cluster associated with the Batch compute environment |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/batch_compute_environment](../../examples/batch_compute_environment).
 <!-- END_TF_DOCS -->

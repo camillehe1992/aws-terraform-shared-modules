@@ -1,18 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.36.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -24,7 +16,6 @@ No modules.
 | [aws_vpc_security_group_ingress_rule.allow_cidr_ipv6](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule) | resource |
 | [aws_vpc_security_group_ingress_rule.allow_prefix_lists](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule) | resource |
 | [aws_vpc_security_group_ingress_rule.allow_referenced_sgs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule) | resource |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -38,11 +29,14 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | The name of SG | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The VPC ID where the SG is created | `string` | n/a | yes |
-
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_security_group"></a> [security\_group](#output\_security\_group) | value |
 | <a name="output_security_group_id"></a> [security\_group\_id](#output\_security\_group\_id) | value |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/security_group](../../examples/security_group).
 <!-- END_TF_DOCS -->

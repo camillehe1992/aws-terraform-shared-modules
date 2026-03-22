@@ -47,20 +47,12 @@ No modules.
 | <a name="output_role_unique_id"></a> [role\_unique\_id](#output\_role\_unique\_id) | The unique ID assigned by AWS to the IAM role |
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 6.36.0 |
-
-## Modules
-
-No modules.
-
 ## Resources
 
 | Name | Type |
@@ -71,7 +63,6 @@ No modules.
 | [aws_iam_role_policy_attachment.customized_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.managed_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_policy_document.assume_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -84,7 +75,6 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_user_managed_policies"></a> [user\_managed\_policies](#input\_user\_managed\_policies) | A map of custom IAM policies to create and attach to the role. The key is the policy name suffix, value is the policy document in JSON format | `map(string)` | `{}` | no |
 | <a name="input_user_provided_assume_role_policy"></a> [user\_provided\_assume\_role\_policy](#input\_user\_provided\_assume\_role\_policy) | The user-provided assume role policy document in JSON format that defines which entities can assume the role | `string` | `null` | no |
-
 ## Outputs
 
 | Name | Description |
@@ -94,4 +84,8 @@ No modules.
 | <a name="output_role_id"></a> [role\_id](#output\_role\_id) | The ID of the IAM role |
 | <a name="output_role_name"></a> [role\_name](#output\_role\_name) | The name of the IAM role |
 | <a name="output_role_unique_id"></a> [role\_unique\_id](#output\_role\_unique\_id) | The unique ID assigned by AWS to the IAM role |
+
+## Examples
+<!-- terraform-docs gets the path; we strip it manually -->
+See [examples/iam_role](../../examples/iam_role).
 <!-- END_TF_DOCS -->
