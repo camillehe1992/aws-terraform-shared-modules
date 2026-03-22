@@ -1,4 +1,4 @@
-# examples/batch_job_definition
+# examples/api_gateway
 
 Deploy **iam_role** resources via Terraform.
 
@@ -6,18 +6,18 @@ Deploy **iam_role** resources via Terraform.
 
 ## Quick start
 ```bash
-just plan batch_job_definition
-just apply batch_job_definition
+just plan api_gateway
+just apply api_gateway
 ```
 
 ## Show outputs
 ```bash
-just output batch_job_definition
+just output api_gateway
 ```
 
 ## Clean up
 ```bash
-just destroy-apply batch_job_definition
+just destroy-apply api_gateway
 ```
 
 ---

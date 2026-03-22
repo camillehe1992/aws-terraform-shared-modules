@@ -1,4 +1,4 @@
-# examples/batch_job_definition
+# examples/lambda_function
 
 Deploy **iam_role** resources via Terraform.
 
@@ -6,18 +6,18 @@ Deploy **iam_role** resources via Terraform.
 
 ## Quick start
 ```bash
-just plan batch_job_definition
-just apply batch_job_definition
+just plan lambda_function
+just apply lambda_function
 ```
 
 ## Show outputs
 ```bash
-just output batch_job_definition
+just output lambda_function
 ```
 
 ## Clean up
 ```bash
-just destroy-apply batch_job_definition
+just destroy-apply lambda_function
 ```
 
 ---
