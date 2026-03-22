@@ -102,6 +102,13 @@ apply module-name=default_module:
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform apply -auto-approve -input=false tfplan
     just fmt-all
 
+output module-name=default_module:
+    #!/usr/bin/env bash
+    just init {{module-name}}
+    PROFILE=$(just _aws-profile)
+    TF_DIR=$(just _tf-example-dir {{module-name}})
+    cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -json | jq .
+
 # Plan and apply Terraform module
 plan-apply module-name=default_module:
     #!/usr/bin/env bash
