@@ -15,6 +15,7 @@ The repository contains a collection of reusable Terraform modules for AWS. Thes
 | [batch_compute_environment](./shared-modules/batch_compute_environment/README.md) | [batch_compute_environment](./examples/batch_compute_environment) | Create Batch compute environment with Fargate or EC2    |
 | [batch_job_definition](./shared-modules/batch_job_definition/README.md)           | [batch_job_definition](./examples/batch_job_definition)           | Create Batch job definition with container              |
 | [batch_job_queue](./shared-modules/batch_job_queue/README.md)                     | [batch_job_queue](./examples/batch_job_queue)                     | Create Batch job queue with priority                    |
+| [ecs_cluster](./shared-modules/ecs_cluster/README.md)                             | [ecs_cluster](./examples/ecs_cluster)                             | Create ECS cluster with Fargate or EC2                  |
 | [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)                   | [eventbridge_rule](./examples/eventbridge_rule)                   | Create eventbridge rule with targets                    |
 | [iam_role](./shared-modules/iam_role/README.md)                                   | [iam_role](./examples/iam_role)                                   | Create IAM role with policies                           |
 | [lambda_function](./shared-modules/lambda_function/README.md)                     | [lambda_function](./examples/lambda_function)                     | Create Lambda function with package                     |
