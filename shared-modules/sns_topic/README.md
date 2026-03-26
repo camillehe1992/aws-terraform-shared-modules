@@ -30,10 +30,6 @@ Creates AWS SNS topics with subscriptions and delivery policies.
 | Name | Description |
 |------|-------------|
 | <a name="output_sns_topic_arn"></a> [sns\_topic\_arn](#output\_sns\_topic\_arn) | ARN of the SNS topic |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/sns_topic](../../examples/sns_topic)

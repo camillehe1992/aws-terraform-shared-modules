@@ -31,10 +31,6 @@ Creates AWS Amplify applications for continuous deployment and hosting.
 | Name | Description |
 |------|-------------|
 | <a name="output_amplify_app"></a> [amplify\_app](#output\_amplify\_app) | ARN of the Amplify app |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/amplify_app](../../examples/amplify_app)

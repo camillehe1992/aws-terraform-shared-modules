@@ -67,10 +67,6 @@ Creates AWS ECS services with integrated task definitions, supporting both Farga
 | <a name="output_task_definition_family"></a> [task\_definition\_family](#output\_task\_definition\_family) | Family of the task definition |
 | <a name="output_task_definition_revision"></a> [task\_definition\_revision](#output\_task\_definition\_revision) | Revision of the task definition |
 | <a name="output_task_role_arn"></a> [task\_role\_arn](#output\_task\_role\_arn) | ARN of the task role |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/ecs_service_with_task_def](../../examples/ecs_service_with_task_def)

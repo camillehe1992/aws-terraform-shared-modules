@@ -42,10 +42,6 @@ Creates AWS Batch compute environments for job processing.
 |------|-------------|
 | <a name="output_compute_environment_arn"></a> [compute\_environment\_arn](#output\_compute\_environment\_arn) | ARN of the Batch compute environment |
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | ARN of the ECS cluster associated with the Batch compute environment |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/batch_compute_environment](../../examples/batch_compute_environment)

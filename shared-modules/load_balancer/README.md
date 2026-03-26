@@ -8,7 +8,7 @@ Creates AWS Application Load Balancers (ALB) and Network Load Balancers (NLB) wi
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.38.0 |
 ## Resources
 
 | Name | Type |
@@ -50,10 +50,6 @@ Creates AWS Application Load Balancers (ALB) and Network Load Balancers (NLB) wi
 | <a name="output_target_group_arns"></a> [target\_group\_arns](#output\_target\_group\_arns) | ARNs of the target groups |
 | <a name="output_target_group_names"></a> [target\_group\_names](#output\_target\_group\_names) | Names of the target groups |
 | <a name="output_target_groups"></a> [target\_groups](#output\_target\_groups) | Target groups of the load balancer |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/load_balancer](../../examples/load_balancer)

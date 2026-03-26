@@ -55,11 +55,14 @@ resource "aws_vpc_security_group_ingress_rule" "allow_prefix_lists" {
 
 # referenced_security_group_id
 resource "aws_vpc_security_group_ingress_rule" "allow_referenced_sgs" {
-  for_each          = var.ingress_referenced_sg_ids
-  security_group_id = aws_security_group.this.id
+  for_each = var.ingress_referenced_sgs
 
-  referenced_security_group_id = each.key
-  ip_protocol                  = "-1"
+  security_group_id            = aws_security_group.this.id
+  referenced_security_group_id = each.value.security_group_id
+  ip_protocol                  = each.value.protocol
+  from_port                    = each.value.from_port
+  to_port                      = each.value.to_port
+  description                  = each.value.description
 }
 
 # Egress

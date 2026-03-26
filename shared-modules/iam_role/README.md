@@ -40,10 +40,6 @@ Creates AWS IAM roles with policies and trust relationships for various AWS serv
 | <a name="output_role_id"></a> [role\_id](#output\_role\_id) | The ID of the IAM role |
 | <a name="output_role_name"></a> [role\_name](#output\_role\_name) | The name of the IAM role |
 | <a name="output_role_unique_id"></a> [role\_unique\_id](#output\_role\_unique\_id) | The unique ID assigned by AWS to the IAM role |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/iam_role](../../examples/iam_role)

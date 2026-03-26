@@ -42,10 +42,6 @@ Creates S3 buckets configured for static website hosting with CloudFront distrib
 | <a name="output_bucket_arn"></a> [bucket\_arn](#output\_bucket\_arn) | S3 bucket ARN |
 | <a name="output_bucket_id"></a> [bucket\_id](#output\_bucket\_id) | S3 bucket name |
 | <a name="output_website_endpoint"></a> [website\_endpoint](#output\_website\_endpoint) | S3 website endpoint (http://...) |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/s3_static_website](../../examples/s3_static_website)

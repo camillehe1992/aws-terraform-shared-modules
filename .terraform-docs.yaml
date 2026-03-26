@@ -21,10 +21,6 @@ content: |-
   {{ .Inputs }}
   {{ .Outputs }}
 
-  ## Examples
-  <!-- terraform-docs gets the path; we strip it manually -->
-  See [examples/REPLACE_ME](../../examples/REPLACE_ME).
-
 output:
   file: ""
   mode: inject

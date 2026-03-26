@@ -37,10 +37,6 @@ Creates AWS EventBridge rules with targets for event-driven architectures.
 | Name | Description |
 |------|-------------|
 | <a name="output_event_rule_arn"></a> [event\_rule\_arn](#output\_event\_rule\_arn) | ARN of the EventBridge rule |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/eventbridge_rule](../../examples/eventbridge_rule)

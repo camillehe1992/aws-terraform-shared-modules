@@ -49,10 +49,6 @@ Creates AWS Lambda functions with IAM roles, environment variables, and CloudWat
 | <a name="output_function_name"></a> [function\_name](#output\_function\_name) | The name of the Lambda function |
 | <a name="output_invoke_arn"></a> [invoke\_arn](#output\_invoke\_arn) | The ARN to be used for invoking the Lambda function from API Gateway |
 | <a name="output_log_group_name"></a> [log\_group\_name](#output\_log\_group\_name) | The name of the CloudWatch Log Group |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/lambda_function](../../examples/lambda_function)

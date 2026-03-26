@@ -34,10 +34,6 @@ Creates AWS Batch job definitions with container and resource specifications.
 |------|-------------|
 | <a name="output_job_definition_arn"></a> [job\_definition\_arn](#output\_job\_definition\_arn) | ARN of the job definition |
 | <a name="output_job_definition_name"></a> [job\_definition\_name](#output\_job\_definition\_name) | Name of the job definition (latest:rev) |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/batch_job_definition](../../examples/batch_job_definition)

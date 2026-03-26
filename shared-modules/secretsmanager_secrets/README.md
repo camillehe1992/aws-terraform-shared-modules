@@ -33,10 +33,6 @@ Creates AWS Secrets Manager secrets with rotation and encryption configuration.
 | Name | Description |
 |------|-------------|
 | <a name="output_secrets"></a> [secrets](#output\_secrets) | n/a |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/secretsmanager_secrets](../../examples/secretsmanager_secrets)

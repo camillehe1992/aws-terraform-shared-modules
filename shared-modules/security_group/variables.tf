@@ -27,10 +27,16 @@ variable "ingress_prefix_lists" {
   default     = []
 }
 
-variable "ingress_referenced_sg_ids" {
-  type        = set(string)
-  description = "A set of referenced SG ids for ingress"
-  default     = []
+variable "ingress_referenced_sgs" {
+  description = "Map of referenced security groups with port information"
+  type = map(object({
+    security_group_id = string
+    from_port         = number
+    to_port           = number
+    protocol          = string
+    description       = string
+  }))
+  default = {}
 }
 
 variable "ingress_cidrs" {

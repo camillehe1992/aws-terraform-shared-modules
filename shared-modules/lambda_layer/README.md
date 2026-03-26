@@ -33,10 +33,6 @@ Creates AWS Lambda layers for shared code and dependencies.
 |------|-------------|
 | <a name="output_layer_arn"></a> [layer\_arn](#output\_layer\_arn) | The ARN of the Lambda layer |
 | <a name="output_layer_version"></a> [layer\_version](#output\_layer\_version) | The version of the Lambda layer |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/lambda_layer](../../examples/lambda_layer)

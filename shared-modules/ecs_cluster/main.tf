@@ -22,3 +22,11 @@ resource "aws_ecs_cluster_capacity_providers" "this" {
     }
   }
 }
+
+# Create CloudWatch Log Group
+resource "aws_cloudwatch_log_group" "this" {
+  name              = "/ecs/${aws_ecs_cluster.this.name}"
+  retention_in_days = var.retention_in_days
+
+  tags = var.tags
+}

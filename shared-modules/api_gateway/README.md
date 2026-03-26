@@ -38,10 +38,6 @@ Creates AWS API Gateway REST APIs with methods, integrations, and deployment sta
 | <a name="output_execution_arn"></a> [execution\_arn](#output\_execution\_arn) | The ARN of the API Gateway execution |
 | <a name="output_invoke_url"></a> [invoke\_url](#output\_invoke\_url) | The invoke URL for the API Gateway stage |
 | <a name="output_rest_api_id"></a> [rest\_api\_id](#output\_rest\_api\_id) | The ID of the API Gateway REST API |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/api_gateway](../../examples/api_gateway)

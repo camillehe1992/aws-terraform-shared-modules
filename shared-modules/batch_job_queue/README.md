@@ -30,10 +30,6 @@ Creates AWS Batch job queues for job scheduling and management.
 |------|-------------|
 | <a name="output_job_queue_arn"></a> [job\_queue\_arn](#output\_job\_queue\_arn) | ARN of the job queue |
 | <a name="output_job_queue_name"></a> [job\_queue\_name](#output\_job\_queue\_name) | Name of the job queue |
-
-## Examples
-<!-- terraform-docs gets the path; we strip it manually -->
-See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
 ## Examples
 See [examples/batch_job_queue](../../examples/batch_job_queue)
