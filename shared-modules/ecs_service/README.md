@@ -1,6 +1,6 @@
-# ECS Service with Task Definition Module
+# null
 
-Creates AWS ECS services with integrated task definitions, supporting both Fargate and EC2 launch types.
+null
 
 <!-- BEGIN_TF_DOCS -->
 
@@ -8,7 +8,7 @@ Creates AWS ECS services with integrated task definitions, supporting both Farga
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.38.0 |
 ## Resources
 
 | Name | Type |
@@ -34,6 +34,7 @@ Creates AWS ECS services with integrated task definitions, supporting both Farga
 | <a name="input_execution_role_arn"></a> [execution\_role\_arn](#input\_execution\_role\_arn) | ARN of the task execution role | `string` | n/a | yes |
 | <a name="input_family_name"></a> [family\_name](#input\_family\_name) | Family name for the task definition | `string` | n/a | yes |
 | <a name="input_force_new_deployment"></a> [force\_new\_deployment](#input\_force\_new\_deployment) | Force a new deployment of the service | `bool` | `false` | no |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ID for encrypting CloudWatch Logs group | `string` | `"alias/logs"` | no |
 | <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | Launch type for the ECS service (EC2 or FARGATE) | `string` | `"FARGATE"` | no |
 | <a name="input_load_balancers"></a> [load\_balancers](#input\_load\_balancers) | Load balancer configuration for the service | <pre>list(object({<br/>    target_group_arn = string<br/>    container_name   = string<br/>    container_port   = number<br/>  }))</pre> | `[]` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | Memory for the task | `string` | `"512"` | no |
@@ -69,4 +70,4 @@ Creates AWS ECS services with integrated task definitions, supporting both Farga
 | <a name="output_task_role_arn"></a> [task\_role\_arn](#output\_task\_role\_arn) | ARN of the task role |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/ecs_service_with_task_def](../../examples/ecs_service_with_task_def)
+See [examples/ecs_service](../../examples/ecs_service)
