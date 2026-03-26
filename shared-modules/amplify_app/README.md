@@ -1,3 +1,7 @@
+# Amplify App Module
+
+Creates AWS Amplify applications for continuous deployment and hosting.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -30,5 +34,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/amplify_app](../../examples/amplify_app).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/amplify_app](../../examples/amplify_app)

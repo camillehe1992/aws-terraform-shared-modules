@@ -1,3 +1,7 @@
+# S3 Static Website Module
+
+Creates S3 buckets configured for static website hosting with CloudFront distribution.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -41,5 +45,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/s3_static_website](../../examples/s3_static_website).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/s3_static_website](../../examples/s3_static_website)

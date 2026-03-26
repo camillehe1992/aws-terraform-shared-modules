@@ -1,3 +1,7 @@
+# Batch Job Definition Module
+
+Creates AWS Batch job definitions with container and resource specifications.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -33,5 +37,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/batch_job_definition](../../examples/batch_job_definition).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/batch_job_definition](../../examples/batch_job_definition)

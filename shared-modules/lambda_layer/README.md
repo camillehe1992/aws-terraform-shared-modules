@@ -1,3 +1,7 @@
+# Lambda Layer Module
+
+Creates AWS Lambda layers for shared code and dependencies.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -32,5 +36,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/lambda_layer](../../examples/lambda_layer).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/lambda_layer](../../examples/lambda_layer)

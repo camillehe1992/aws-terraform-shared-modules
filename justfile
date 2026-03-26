@@ -150,8 +150,28 @@ gen-docs:
     for dir in shared-modules/*; do
         if [ -d "$dir" ]; then
             (cd "$dir"
-            terraform-docs markdown table --output-file README.md --output-mode inject --config ../../.terraform-docs.yaml .
-            sed -i '' 's|examples/REPLACE_ME|examples/'$(basename "$dir")'|g' README.md)
+            # remove existing README.md
+            rm -f README.md
+
+            # generate README.md
+            terraform-docs markdown table --output-file README_TEMP.md --output-mode inject --config ../../.terraform-docs.yaml .
+
+            TITLE=$(yq eval ".modules.$(basename "$dir").title" ../../docs/module-config.yaml 2>/dev/null || echo "")
+            DESC=$(yq eval ".modules.$(basename "$dir").description" ../../docs/module-config.yaml 2>/dev/null || echo "")
+
+            if [ -z "$TITLE"  ] || [ -z "$DESC" ]; then
+                echo "Title or Description is empty, add module title or description into module-config.yaml"
+                exit 1
+            fi
+
+            printf '# %s\n\n%s\n\n%s\n' "$TITLE" "$DESC" "$(cat README_TEMP.md)" > README.md
+
+            # sed -i '' 's|examples/REPLACE_ME|examples/'$(basename "$dir")'|g' README.md
+            # append example to README.md
+            echo "## Examples" >> README.md
+            echo "See [examples/$(basename "$dir")](../../examples/$(basename "$dir"))" >> README.md
+
+            rm -f README_TEMP.md)
         fi;
     done
 

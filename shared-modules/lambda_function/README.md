@@ -1,3 +1,7 @@
+# Lambda Function Module
+
+Creates AWS Lambda functions with IAM roles, environment variables, and CloudWatch logging.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -48,5 +52,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/lambda_function](../../examples/lambda_function).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/lambda_function](../../examples/lambda_function)

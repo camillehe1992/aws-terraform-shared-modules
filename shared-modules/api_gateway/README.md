@@ -1,3 +1,7 @@
+# API Gateway Module
+
+Creates AWS API Gateway REST APIs with methods, integrations, and deployment stages.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -37,5 +41,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/api_gateway](../../examples/api_gateway).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/api_gateway](../../examples/api_gateway)

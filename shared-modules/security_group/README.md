@@ -1,3 +1,7 @@
+# Security Group Module
+
+Creates AWS Security Groups with flexible ingress and egress rules. Supports CIDR blocks, IPv6, prefix lists, and referenced security groups.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -38,5 +42,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/security_group](../../examples/security_group).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/security_group](../../examples/security_group)

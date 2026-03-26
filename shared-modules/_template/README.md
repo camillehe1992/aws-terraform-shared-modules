@@ -1,3 +1,7 @@
+# null
+
+null
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -19,5 +23,7 @@ No resources.
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/_template](../../examples/_template).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/_template](../../examples/_template)

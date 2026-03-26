@@ -1,3 +1,7 @@
+# ECS Cluster Module
+
+Creates AWS ECS clusters for container orchestration.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -30,5 +34,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/ecs_cluster](../../examples/ecs_cluster).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/ecs_cluster](../../examples/ecs_cluster)

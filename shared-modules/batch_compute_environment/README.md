@@ -1,3 +1,7 @@
+# Batch Compute Environment Module
+
+Creates AWS Batch compute environments for job processing.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -41,5 +45,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/batch_compute_environment](../../examples/batch_compute_environment).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/batch_compute_environment](../../examples/batch_compute_environment)

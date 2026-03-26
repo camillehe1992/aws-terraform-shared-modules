@@ -1,3 +1,7 @@
+# Batch Job Queue Module
+
+Creates AWS Batch job queues for job scheduling and management.
+
 <!-- BEGIN_TF_DOCS -->
 
 ## Providers
@@ -29,5 +33,7 @@
 
 ## Examples
 <!-- terraform-docs gets the path; we strip it manually -->
-See [examples/batch_job_queue](../../examples/batch_job_queue).
+See [examples/REPLACE_ME](../../examples/REPLACE_ME).
 <!-- END_TF_DOCS -->
+## Examples
+See [examples/batch_job_queue](../../examples/batch_job_queue)
