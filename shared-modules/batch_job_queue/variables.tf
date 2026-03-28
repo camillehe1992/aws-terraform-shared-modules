@@ -24,17 +24,6 @@ variable "compute_environments" {
   default = []
 }
 
-# variable "job_state_time_limit_action" {
-#   description = "Action to take when a job exceeds the max time limit"
-#   type = object({
-#     action           = string
-#     max_time_seconds = number
-#     reason           = string
-#     state            = string
-#   })
-#   default = null
-# }
-
 variable "scheduling_policy_arn" {
   description = "ARN of the scheduling policy"
   type        = string
