@@ -14,20 +14,27 @@ Creates AWS Batch job definitions with container and resource specifications.
 | Name | Type |
 |------|------|
 | [aws_batch_job_definition.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/batch_job_definition) | resource |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_command"></a> [command](#input\_command) | Command to run | `list(string)` | `[]` | no |
 | <a name="input_container_image"></a> [container\_image](#input\_container\_image) | Docker image to run | `string` | n/a | yes |
 | <a name="input_container_memory"></a> [container\_memory](#input\_container\_memory) | Memory (MiB) for the container | `number` | `1024` | no |
 | <a name="input_container_vcpu"></a> [container\_vcpu](#input\_container\_vcpu) | vCPU count for the container | `number` | `1` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Key-value pairs injected into the container | `map(string)` | `{}` | no |
+| <a name="input_execution_role_arn"></a> [execution\_role\_arn](#input\_execution\_role\_arn) | IAM role the container can assume for Fargate | `string` | `""` | no |
 | <a name="input_job_role_arn"></a> [job\_role\_arn](#input\_job\_role\_arn) | IAM role the container can assume | `string` | `""` | no |
+| <a name="input_mount_points"></a> [mount\_points](#input\_mount\_points) | Mount points to use | <pre>list(object({<br/>    container = string<br/>    host      = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the job definition | `string` | n/a | yes |
+| <a name="input_parameters"></a> [parameters](#input\_parameters) | Key-value pairs injected into the container | `map(string)` | `{}` | no |
 | <a name="input_platform_capabilities"></a> [platform\_capabilities](#input\_platform\_capabilities) | FARGATE or EC2 | `list(string)` | <pre>[<br/>  "EC2"<br/>]</pre> | no |
 | <a name="input_retry_strategy"></a> [retry\_strategy](#input\_retry\_strategy) | Retry configuration | <pre>object({<br/>    attempts = number<br/>  })</pre> | <pre>{<br/>  "attempts": 3<br/>}</pre> | no |
+| <a name="input_secrets"></a> [secrets](#input\_secrets) | Secrets to inject | <pre>list(object({<br/>    name  = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply | `map(string)` | `{}` | no |
 | <a name="input_timeout_minutes"></a> [timeout\_minutes](#input\_timeout\_minutes) | Job timeout (minutes) | `number` | `30` | no |
+| <a name="input_volumes"></a> [volumes](#input\_volumes) | Volumes to mount | <pre>list(object({<br/>    name   = string<br/>    source = string<br/>  }))</pre> | `[]` | no |
 ## Outputs
 
 | Name | Description |

@@ -1,0 +1,91 @@
+# justfile - Task runner for Terraform workflows
+
+PROJECT_ROOT := `pwd`
+
+# Shell to use
+set shell := ["bash", "-uc"]
+set dotenv-load := true
+set fallback := true
+
+plan-apply:
+	#!/usr/bin/env bash
+	BATCH_DIR=$(basename $(pwd))
+	just plan-apply ${BATCH_DIR}
+
+destroy-apply:
+	#!/usr/bin/env bash
+	BATCH_DIR=$(basename $(pwd))
+	just destroy-apply ${BATCH_DIR}
+
+output:
+	#!/usr/bin/env bash
+	BATCH_DIR=$(basename $(pwd))
+	just output ${BATCH_DIR}
+
+_get_fargate_job_queue:
+	#!/usr/bin/env bash
+	PROFILE=$(just _aws-profile)
+	TF_DIR=$(just _tf-example-dir batch)
+	cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -raw fargate_job_queue_arn | xargs echo
+
+_get_fargate_job_definition_arn:
+	#!/usr/bin/env bash
+	PROFILE=$(just _aws-profile)
+	TF_DIR=$(just _tf-example-dir batch)
+	cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -raw fargate_job_definition_arn | xargs echo
+
+_get_ec2_job_queue:
+	#!/usr/bin/env bash
+	PROFILE=$(just _aws-profile)
+	TF_DIR=$(just _tf-example-dir batch)
+	cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -raw ec2_job_queue_arn | xargs echo
+
+_get_ec2_job_definition_arn:
+	#!/usr/bin/env bash
+	PROFILE=$(just _aws-profile)
+	TF_DIR=$(just _tf-example-dir batch)
+	cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -raw ec2_job_definition_arn | xargs echo
+
+submit type:
+	#!/usr/bin/env bash
+	if [ "{{type}}" == "ec2-job" ]; then
+		BATCH_JOB_QUEUE=$(just _get_ec2_job_queue)
+		JOB_DEF_ARN=$(just _get_ec2_job_definition_arn)
+	elif [ "{{type}}" == "fargate-job" ]; then
+		BATCH_JOB_QUEUE=$(just _get_fargate_job_queue)
+		JOB_DEF_ARN=$(just _get_fargate_job_definition_arn)
+	else
+		echo "Invalid type: {{type}}"
+		exit 1
+	fi
+
+	echo "BATCH_JOB_QUEUE: ${BATCH_JOB_QUEUE}"
+	echo "JOB_DEF_ARN: ${JOB_DEF_ARN}"
+
+	JOB_NAME=demo-cli-job-`date +%Y-%m-%d-%H-%M`
+	export JOB_NAME=${JOB_NAME}
+	echo "JOB_NAME: ${JOB_NAME}"
+
+	PROFILE=$(just _aws-profile)
+	JOB_ID=$(aws batch submit-job \
+		--profile ${PROFILE} \
+	 	--job-name ${JOB_NAME} \
+	 	--job-queue ${BATCH_JOB_QUEUE} \
+	 	--job-definition ${JOB_DEF_ARN} \
+	 	--container-overrides command=echo,hello-world | jq .jobId | xargs echo)
+	echo "Job submitted with JOB_ID: ${JOB_ID}"
+	echo "use ``just describe-job ${JOB_ID}`` to check the job status"
+
+	echo "Check job status:"
+
+	while true; do
+		JOB_STATUS=$(aws batch describe-jobs \
+			--profile ${PROFILE} \
+			--jobs ${JOB_ID} \
+			--query 'jobs[0].status' --output text)
+		echo "JOB_STATUS: ${JOB_STATUS}"
+		if [ "${JOB_STATUS}" == "SUCCEEDED" ] || [ "${JOB_STATUS}" == "FAILED" ]; then
+			break
+		fi
+		sleep 5
+	done

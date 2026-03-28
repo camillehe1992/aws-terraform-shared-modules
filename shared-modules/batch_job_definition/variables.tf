@@ -32,10 +32,49 @@ variable "environment" {
   default     = {}
 }
 
+variable "execution_role_arn" {
+  description = "IAM role the container can assume for Fargate"
+  type        = string
+  default     = ""
+}
+
 variable "platform_capabilities" {
   description = "FARGATE or EC2"
   type        = list(string)
   default     = ["EC2"]
+}
+
+variable "command" {
+  description = "Command to run"
+  type        = list(string)
+  default     = []
+}
+
+variable "volumes" {
+  description = "Volumes to mount"
+  type = list(object({
+    name   = string
+    source = string
+  }))
+  default = []
+}
+
+variable "mount_points" {
+  description = "Mount points to use"
+  type = list(object({
+    container = string
+    host      = string
+  }))
+  default = []
+}
+
+variable "secrets" {
+  description = "Secrets to inject"
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
 }
 
 variable "retry_strategy" {
@@ -44,6 +83,12 @@ variable "retry_strategy" {
     attempts = number
   })
   default = { attempts = 3 }
+}
+
+variable "parameters" {
+  description = "Key-value pairs injected into the container"
+  type        = map(string)
+  default     = {}
 }
 
 variable "timeout_minutes" {
