@@ -1,4 +1,4 @@
-# AWS Batch Example
+# Setup AWS Batch - Fargate/EC2 On-Demand and Spot
 
 The example demostrates how to use the shared modules to create a batch application leveraging AWS Batch service.
 
@@ -30,7 +30,7 @@ Besides, in `network.tf`, below resources are created to allow outbound traffic 
 
 ## Provision Resources
 
-In the `examples/batch` directory, run the following `just` commands:
+In the `examples/batch_app` directory, run the following `just` commands:
 
 ```bash
 # plan and apply batch resources
