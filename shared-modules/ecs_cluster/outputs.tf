@@ -14,6 +14,6 @@ output "cluster_id" {
 }
 
 output "cluster_log_group_name" {
-  value       = aws_cloudwatch_log_group.this.name
+  value       = var.log_configuration.enabled ? aws_cloudwatch_log_group.this[0].name : null
   description = "Name of the ECS cluster log group"
 }

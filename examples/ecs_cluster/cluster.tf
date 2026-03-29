@@ -1,7 +1,8 @@
-module "fargate_cluster" {
+# Create ECS Cluster with infrastructure - Fargate only
+module "fargate_only_cluster" {
   source = "../../shared-modules/ecs_cluster"
 
-  name               = "demo-ecs-fargate-cluster"
+  name               = local.fargate_only_cluster_name
   capacity_providers = ["FARGATE", "FARGATE_SPOT"]
 
   default_capacity_provider_strategy = [
@@ -9,13 +10,9 @@ module "fargate_cluster" {
     { capacity_provider = "FARGATE", weight = 1, base = 0 }
   ]
 
-  container_insights = true
-
-  tags = {
-    Environment = "dev"
-  }
+  tags = local.tags
 }
 
-output "cluster_arn" {
-  value = module.fargate_cluster.cluster_arn
+output "fargate_only_cluster_id" {
+  value = module.fargate_only_cluster.cluster_id
 }
