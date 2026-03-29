@@ -43,4 +43,4 @@ Creates AWS Batch job definitions with container and resource specifications.
 | <a name="output_job_definition_name"></a> [job\_definition\_name](#output\_job\_definition\_name) | Name of the job definition (latest:rev) |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/batch_job_definition](../../examples/batch_job_definition)
+See [examples/batch](../../examples/batch)

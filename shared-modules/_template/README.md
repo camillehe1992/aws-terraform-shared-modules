@@ -22,4 +22,4 @@ No resources.
 | <a name="output_greeting"></a> [greeting](#output\_greeting) | n/a |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/_template](../../examples/_template)
+See [null](../../null)

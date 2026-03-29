@@ -69,4 +69,4 @@ Creates AWS ECS services with integrated task definitions, supporting both Farga
 | <a name="output_task_role_arn"></a> [task\_role\_arn](#output\_task\_role\_arn) | ARN of the task role |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/ecs_service](../../examples/ecs_service)
+See [examples/ecs_app](../../examples/ecs_app)

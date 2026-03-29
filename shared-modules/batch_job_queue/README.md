@@ -32,4 +32,4 @@ Creates AWS Batch job queues for job scheduling and management.
 | <a name="output_job_queue_name"></a> [job\_queue\_name](#output\_job\_queue\_name) | Name of the job queue |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/batch_job_queue](../../examples/batch_job_queue)
+See [examples/batch](../../examples/batch)

@@ -158,6 +158,7 @@ gen-docs:
 
             TITLE=$(yq eval ".modules.$(basename "$dir").title" ../../docs/module-config.yaml 2>/dev/null || echo "")
             DESC=$(yq eval ".modules.$(basename "$dir").description" ../../docs/module-config.yaml 2>/dev/null || echo "")
+            EXAMPLE_DIR=$(yq eval ".modules.$(basename "$dir").example_dir" ../../docs/module-config.yaml 2>/dev/null || echo "")
 
             if [ -z "$TITLE"  ] || [ -z "$DESC" ]; then
                 echo "Title or Description is empty, add module title or description into module-config.yaml"
@@ -169,7 +170,7 @@ gen-docs:
             # sed -i '' 's|examples/REPLACE_ME|examples/'$(basename "$dir")'|g' README.md
             # append example to README.md
             echo "## Examples" >> README.md
-            echo "See [examples/$(basename "$dir")](../../examples/$(basename "$dir"))" >> README.md
+            echo "See [$EXAMPLE_DIR](../../$EXAMPLE_DIR)" >> README.md
 
             rm -f README_TEMP.md)
         fi;

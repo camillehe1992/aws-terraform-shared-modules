@@ -50,4 +50,4 @@ Creates AWS Batch compute environments for job processing.
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | ARN of the ECS cluster associated with the Batch compute environment |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/batch_compute_environment](../../examples/batch_compute_environment)
+See [examples/batch](../../examples/batch)
