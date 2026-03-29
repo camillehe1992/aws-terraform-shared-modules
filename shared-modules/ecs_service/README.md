@@ -1,6 +1,6 @@
-# null
+# ECS Service Module
 
-null
+Creates AWS ECS services with integrated task definitions, supporting both Fargate and EC2 launch types.
 
 <!-- BEGIN_TF_DOCS -->
 
@@ -16,25 +16,24 @@ null
 | [aws_cloudwatch_log_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
 | [aws_ecs_service.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) | resource |
 | [aws_ecs_task_definition.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) | resource |
+| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_assign_public_ip"></a> [assign\_public\_ip](#input\_assign\_public\_ip) | Assign public IP to tasks | `bool` | `false` | no |
-| <a name="input_cloudwatch_log_group_name"></a> [cloudwatch\_log\_group\_name](#input\_cloudwatch\_log\_group\_name) | Name of the CloudWatch Logs group for ECS service logs | `string` | n/a | yes |
 | <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | ECS cluster ID where the service will be deployed | `string` | n/a | yes |
-| <a name="input_containers"></a> [containers](#input\_containers) | Container definitions for the task | <pre>list(object({<br/>    name        = string<br/>    image       = string<br/>    cpu         = optional(number)<br/>    memory      = optional(number)<br/>    essential   = optional(bool, true)<br/>    environment = optional(map(string), {})<br/>    secrets = optional(list(object({<br/>      name       = string<br/>      value_from = string<br/>    })), [])<br/>    port_mappings = optional(list(object({<br/>      container_port = number<br/>      host_port      = optional(number)<br/>      protocol       = optional(string, "tcp")<br/>    })), [])<br/>    mount_points = optional(list(object({<br/>      source_volume  = string<br/>      container_path = string<br/>      read_only      = optional(bool, false)<br/>    })), [])<br/>    log_configuration = optional(object({<br/>      log_driver = string<br/>      options    = optional(map(string), {})<br/>      secret_options = optional(list(object({<br/>        name       = string<br/>        value_from = string<br/>      })), [])<br/>    }))<br/>    health_check = optional(object({<br/>      command      = list(string)<br/>      interval     = optional(number, 30)<br/>      timeout      = optional(number, 5)<br/>      retries      = optional(number, 3)<br/>      start_period = optional(number, 0)<br/>    }))<br/>    working_directory        = optional(string)<br/>    user                     = optional(string)<br/>    readonly_root_filesystem = optional(bool, false)<br/>    privileged               = optional(bool, false)<br/>    linux_parameters         = optional(any)<br/>  }))</pre> | n/a | yes |
+| <a name="input_containers"></a> [containers](#input\_containers) | Container definitions for the task | <pre>list(object({<br/>    name        = string<br/>    image       = string<br/>    cpu         = optional(number)<br/>    memory      = optional(number)<br/>    essential   = optional(bool, true)<br/>    environment = optional(map(string), {})<br/>    secrets = optional(list(object({<br/>      name       = string<br/>      value_from = string<br/>    })), [])<br/>    port_mappings = optional(list(object({<br/>      container_port = number<br/>      host_port      = optional(number)<br/>      protocol       = optional(string, "tcp")<br/>    })), [])<br/>    mount_points = optional(list(object({<br/>      source_volume  = string<br/>      container_path = string<br/>      read_only      = optional(bool, false)<br/>    })), [])<br/>    log_configuration = optional(object({<br/>      log_driver = optional(string, "awslogs")<br/>      options    = optional(map(string), {})<br/>      secret_options = optional(list(object({<br/>        name       = string<br/>        value_from = string<br/>      })), [])<br/>    }))<br/>    health_check = optional(object({<br/>      command      = list(string)<br/>      interval     = optional(number, 30)<br/>      timeout      = optional(number, 5)<br/>      retries      = optional(number, 3)<br/>      start_period = optional(number, 0)<br/>    }))<br/>    working_directory        = optional(string)<br/>    user                     = optional(string)<br/>    readonly_root_filesystem = optional(bool, false)<br/>    privileged               = optional(bool, false)<br/>    linux_parameters         = optional(any)<br/>  }))</pre> | n/a | yes |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | CPU units for the task | `string` | `"256"` | no |
 | <a name="input_deployment_circuit_breaker"></a> [deployment\_circuit\_breaker](#input\_deployment\_circuit\_breaker) | Enable deployment circuit breaker for rollback on failure | `bool` | `false` | no |
 | <a name="input_deployment_maximum_percent"></a> [deployment\_maximum\_percent](#input\_deployment\_maximum\_percent) | The upper limit (as a percentage of the desired count) of the number of running tasks that can be running in a service during a deployment | `number` | `200` | no |
 | <a name="input_deployment_minimum_healthy_percent"></a> [deployment\_minimum\_healthy\_percent](#input\_deployment\_minimum\_healthy\_percent) | The lower limit (as a percentage of the desired count) of the number of running tasks that must be running in a service during a deployment | `number` | `100` | no |
 | <a name="input_desired_count"></a> [desired\_count](#input\_desired\_count) | Number of instances of the task definition to run | `number` | `1` | no |
-| <a name="input_enable_ecs_managed_tags"></a> [enable\_ecs\_managed\_tags](#input\_enable\_ecs\_managed\_tags) | Enable ECS managed tags for the service | `bool` | `false` | no |
 | <a name="input_enable_execute_command"></a> [enable\_execute\_command](#input\_enable\_execute\_command) | Enable ECS Exec for debugging | `bool` | `false` | no |
 | <a name="input_execution_role_arn"></a> [execution\_role\_arn](#input\_execution\_role\_arn) | ARN of the task execution role | `string` | n/a | yes |
 | <a name="input_family_name"></a> [family\_name](#input\_family\_name) | Family name for the task definition | `string` | n/a | yes |
 | <a name="input_force_new_deployment"></a> [force\_new\_deployment](#input\_force\_new\_deployment) | Force a new deployment of the service | `bool` | `false` | no |
-| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ID for encrypting CloudWatch Logs group | `string` | `"alias/logs"` | no |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | KMS key ID for encrypting CloudWatch Logs group | `string` | `null` | no |
 | <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | Launch type for the ECS service (EC2 or FARGATE) | `string` | `"FARGATE"` | no |
 | <a name="input_load_balancers"></a> [load\_balancers](#input\_load\_balancers) | Load balancer configuration for the service | <pre>list(object({<br/>    target_group_arn = string<br/>    container_name   = string<br/>    container_port   = number<br/>  }))</pre> | `[]` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | Memory for the task | `string` | `"512"` | no |

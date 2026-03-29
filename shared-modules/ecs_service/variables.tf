@@ -1,23 +1,17 @@
 # Log Group Configuration
 # Check: CKV_AWS_338: "Ensure CloudWatch log groups retains logs for at least 1 year"
-# Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
-variable "cloudwatch_log_group_name" {
-  description = "Name of the CloudWatch Logs group for ECS service logs"
-  type        = string
-}
 variable "retention_in_days" {
   description = "Number of days to retain log events in the CloudWatch Logs group"
   type        = number
   default     = 7
 }
 
+# Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
 variable "kms_key_id" {
   description = "KMS key ID for encrypting CloudWatch Logs group"
   type        = string
-  default     = "alias/logs"
+  default     = null
 }
-
-
 
 # ECS Service Configuration
 variable "service_name" {
@@ -60,12 +54,6 @@ variable "deployment_circuit_breaker" {
   default     = false
 }
 
-variable "enable_ecs_managed_tags" {
-  description = "Enable ECS managed tags for the service"
-  type        = bool
-  default     = false
-}
-
 variable "enable_execute_command" {
   description = "Enable ECS Exec for debugging"
   type        = bool
@@ -89,8 +77,6 @@ variable "propagate_tags" {
   type        = string
   default     = "SERVICE"
 }
-
-
 
 # Task Definition Configuration
 variable "family_name" {
@@ -151,7 +137,7 @@ variable "containers" {
       read_only      = optional(bool, false)
     })), [])
     log_configuration = optional(object({
-      log_driver = string
+      log_driver = optional(string, "awslogs")
       options    = optional(map(string), {})
       secret_options = optional(list(object({
         name       = string

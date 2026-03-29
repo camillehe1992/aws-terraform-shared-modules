@@ -1,14 +1,8 @@
-# Here are some reosurce dependencies for ECS service task setup:
-# - ECS Cluster
-
-locals {
-  ecs_cluster_name = "demo-ecs-fargate-cluster"
-}
-# Create ECS Cluster
-module "fargate_cluster" {
+# Create ECS Cluster with infrastructure - Fargate only
+module "fargate_only_cluster" {
   source = "../../shared-modules/ecs_cluster"
 
-  name               = local.ecs_cluster_name
+  name               = local.fargate_only_cluster_name
   capacity_providers = ["FARGATE", "FARGATE_SPOT"]
 
   default_capacity_provider_strategy = [
@@ -16,11 +10,9 @@ module "fargate_cluster" {
     { capacity_provider = "FARGATE", weight = 1, base = 0 }
   ]
 
-  container_insights = true
-
   tags = local.tags
 }
 
-output "ecs_cluster_id" {
-  value = module.fargate_cluster.cluster_id
+output "fargate_only_cluster_id" {
+  value = module.fargate_only_cluster.cluster_id
 }

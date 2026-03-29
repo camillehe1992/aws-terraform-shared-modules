@@ -1,4 +1,11 @@
+data "aws_region" "current" {}
+
 locals {
+  awslogs_options = {
+    "awslogs-group"         = "/aws/ecs/${var.service_name}"
+    "awslogs-region"        = data.aws_region.current.id
+    "awslogs-stream-prefix" = var.family_name
+  }
   container_definitions = [
     for container in var.containers : {
       name  = container.name
@@ -40,7 +47,7 @@ locals {
 
       logConfiguration = container.log_configuration != null ? {
         logDriver = container.log_configuration.log_driver
-        options   = container.log_configuration.options
+        options   = container.log_configuration.log_driver != "awslogs" ? local.awslogs_options : container.log_configuration.options
         secretOptions = container.log_configuration.secret_options != null ? [
           for secret_option in container.log_configuration.secret_options : {
             name      = secret_option.name

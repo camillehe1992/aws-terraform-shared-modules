@@ -1,6 +1,5 @@
 resource "aws_cloudwatch_log_group" "this" {
-
-  name              = var.cloudwatch_log_group_name
+  name              = "/aws/ecs/${var.service_name}"
   retention_in_days = var.retention_in_days
   kms_key_id        = var.kms_key_id
   tags              = var.tags
@@ -50,7 +49,7 @@ resource "aws_ecs_service" "this" {
     }
   }
 
-  enable_ecs_managed_tags = var.enable_ecs_managed_tags
+  enable_ecs_managed_tags = true
   enable_execute_command  = var.enable_execute_command
   force_new_deployment    = var.force_new_deployment
   wait_for_steady_state   = var.wait_for_steady_state

@@ -5,63 +5,79 @@ modules:
   security_group:
     title: "Security Group Module"
     description: "Creates AWS Security Groups with flexible ingress and egress rules. Supports CIDR blocks, IPv6, prefix lists, and referenced security groups."
+    example_dir: examples/security_group
 
   load_balancer:
     title: "Load Balancer Module"
     description: "Creates AWS Application Load Balancers (ALB) and Network Load Balancers (NLB) with target groups, listeners, and routing rules."
+    example_dir: examples/load_balancer
 
-  ecs_service_with_task_def:
-    title: "ECS Service with Task Definition Module"
+  ecs_service:
+    title: "ECS Service Module"
     description: "Creates AWS ECS services with integrated task definitions, supporting both Fargate and EC2 launch types."
+    example_dir: examples/ecs_app
 
   lambda_function:
     title: "Lambda Function Module"
     description: "Creates AWS Lambda functions with IAM roles, environment variables, and CloudWatch logging."
+    example_dir: examples/lambda_function
 
   s3_static_website:
     title: "S3 Static Website Module"
     description: "Creates S3 buckets configured for static website hosting with CloudFront distribution."
+    example_dir: examples/s3_static_website
 
   api_gateway:
     title: "API Gateway Module"
     description: "Creates AWS API Gateway REST APIs with methods, integrations, and deployment stages."
+    example_dir: examples/api_gateway
 
   iam_role:
     title: "IAM Role Module"
     description: "Creates AWS IAM roles with policies and trust relationships for various AWS services."
+    example_dir: examples/iam_role
 
   eventbridge_rule:
     title: "EventBridge Rule Module"
     description: "Creates AWS EventBridge rules with targets for event-driven architectures."
+    example_dir: examples/eventbridge_rule
 
   sns_topic:
     title: "SNS Topic Module"
     description: "Creates AWS SNS topics with subscriptions and delivery policies."
+    example_dir: examples/sns_topic
 
   secretsmanager_secrets:
     title: "Secrets Manager Secrets Module"
     description: "Creates AWS Secrets Manager secrets with rotation and encryption configuration."
+    example_dir: examples/secretsmanager_secrets
 
   amplify_app:
     title: "Amplify App Module"
     description: "Creates AWS Amplify applications for continuous deployment and hosting."
+    example_dir: examples/amplify_app
 
   batch_compute_environment:
     title: "Batch Compute Environment Module"
     description: "Creates AWS Batch compute environments for job processing."
+    example_dir: examples/batch
 
   batch_job_definition:
     title: "Batch Job Definition Module"
     description: "Creates AWS Batch job definitions with container and resource specifications."
+    example_dir: examples/batch
 
   batch_job_queue:
     title: "Batch Job Queue Module"
     description: "Creates AWS Batch job queues for job scheduling and management."
+    example_dir: examples/batch
 
   lambda_layer:
     title: "Lambda Layer Module"
     description: "Creates AWS Lambda layers for shared code and dependencies."
+    example_dir: examples/lambda_layer
 
   ecs_cluster:
     title: "ECS Cluster Module"
     description: "Creates AWS ECS clusters for container orchestration."
+    example_dir: examples/ecs_cluster

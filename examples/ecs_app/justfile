@@ -1,0 +1,30 @@
+# justfile - Task runner for Terraform workflows
+
+PROJECT_ROOT := `pwd`
+
+# Shell to use
+set shell := ["bash", "-uc"]
+set dotenv-load := true
+set fallback := true
+
+plan-apply:
+	#!/usr/bin/env bash
+	ECS_DIR=$(basename $(pwd))
+	just plan-apply ${ECS_DIR}
+
+destroy-apply:
+	#!/usr/bin/env bash
+	ECS_DIR=$(basename $(pwd))
+	just destroy-apply ${ECS_DIR}
+
+output:
+	#!/usr/bin/env bash
+	ECS_DIR=$(basename $(pwd))
+	just output ${ECS_DIR}
+
+get-alb-endpoint:
+	#!/usr/bin/env bash
+	PROFILE=$(just _aws-profile)
+	TF_DIR=$(just _tf-example-dir ecs_app)
+	echo "[*]  Get ALB endpoint..."
+	cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -raw nginx_alb_endpoint | xargs echo
