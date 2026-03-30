@@ -1,26 +1,29 @@
-# examples/iam_role
+# Deploy IAM Role in AWS
 
-Deploy **** resources via Terraform.
+The example is used to demostrate the usage of IAM role shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module | Description     |
+| ------------- | --------------- |
+| iam_role      | Create IAM role |
+
+## Provision Resources
+
+in the `examples/iam_role` directory, run the following `just` commands:
+
 ```bash
-just plan iam_role
-just apply iam_role
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output iam_role
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply iam_role
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/`

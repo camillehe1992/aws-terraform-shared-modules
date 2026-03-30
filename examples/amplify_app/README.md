@@ -1,26 +1,31 @@
-# examples/amplify_app
+# Deploy Application in AWS Amplify
 
-Deploy **amplify_app** resources via Terraform.
+The example is used to deploy an application in AWS Amplify.
 
----
+The example is based on the following module:
 
-## Quick start
+| Module      | Description                           |
+| ----------- | ------------------------------------- |
+| amplify_app | Deploy an application in AWS Amplify. |
+
+The application variables are defined in `tfvar.json` file.
+
+## Provision Resources
+
+in the `examples/amplify_app` directory, run the following `just` commands:
+
 ```bash
-just plan amplify_app
-just apply amplify_app
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output amplify_app
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply amplify_app
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/amplify_app`

@@ -1,26 +1,29 @@
-# examples/secretsmanager_secrets
+# SecretsManager Secrets in AWS
 
-Deploy **** resources via Terraform.
+The example is used to demostrate the usage of SecretsManager shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module          | Description                   |
+| ---------------------- | ----------------------------- |
+| secretsmanager_secrets | Create SecretsManager Secrets |
+
+## Provision Resources
+
+in the `examples/secretsmanager_secrets` directory, run the following `just` commands:
+
 ```bash
-just plan secretsmanager_secrets
-just apply secretsmanager_secrets
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output secretsmanager_secrets
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply secretsmanager_secrets
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/`

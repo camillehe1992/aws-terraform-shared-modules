@@ -1,26 +1,29 @@
-# examples/security_group
+# Security Group in AWS
 
-Deploy **security_group** resources via Terraform.
+The example is used to demostrate the usage of Security Group shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module  | Description           |
+| -------------- | --------------------- |
+| security_group | Create Security Group |
+
+## Provision Resources
+
+in the `examples/security_group` directory, run the following `just` commands:
+
 ```bash
-just plan security_group
-just apply security_group
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output security_group
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply security_group
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/security_group`

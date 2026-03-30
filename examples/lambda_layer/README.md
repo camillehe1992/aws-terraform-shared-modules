@@ -1,26 +1,29 @@
-# examples/lambda_layer
+# Deploy Lambda Layer in AWS
 
-Deploy **** resources via Terraform.
+The example is used to demostrate the usage of Lambda layer shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module | Description         |
+| ------------- | ------------------- |
+| lambda_layer  | Create Lambda layer |
+
+## Provision Resources
+
+in the `examples/lambda_layer` directory, run the following `just` commands:
+
 ```bash
-just plan lambda_layer
-just apply lambda_layer
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output lambda_layer
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply lambda_layer
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/`

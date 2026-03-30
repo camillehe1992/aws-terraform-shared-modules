@@ -1,73 +1,60 @@
-# examples/load_balancer
+# Setup Load Balancers in AWS
 
-Deploy **AWS Load Balancers** (ALB, NLB) with various configurations via Terraform.
+The example is used to demostrate the usage of Load Balancer shared module in AWS.
 
-This example demonstrates:
-- Basic Application Load Balancer with HTTP
-- Path-based routing ALB
-- Network Load Balancer (NLB)
-- Target groups with health checks
-- Listener rules for advanced routing
+The example uses the following shared modules:
 
----
+| Shared Module | Description          |
+| ------------- | -------------------- |
+| load_balancer | Create Load Balancer |
 
-## Quick start
-```bash
-just plan load_balancer
-just apply load_balancer
-```
-
-## Show outputs
-```bash
-just output load_balancer
-```
-
-## Clean up
-```bash
-just destroy-apply load_balancer
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/load_balancer`
+**Architecture**:
+Internet → ALB/NLB → Target Groups → Backend Services
 
 ## Examples Demonstrated
 
-### 1. Basic ALB with HTTP
+### 1. Basic ALB with HTTP (basic_alb.tf)
+
 - Simple internet-facing ALB
 - Single target group
 - HTTP listener on port 80
 - Health checks on root path
 
-### 2. Path-based Routing ALB
+### 2. Path-based Routing ALB (path_based_alb.tf)
+
 - Multiple target groups
 - Listener rules for path-based routing
 - `/api/*` routes to API target group
 - Default route to web target group
 
-### 3. Network Load Balancer (NLB)
+### 3. Network Load Balancer (NLB) (nlb.tf)
+
 - TCP listener on port 80
 - TCP health checks
 - High performance for TCP traffic
 
-## Accessing Your Load Balancers
-
-After deployment, you can access your load balancers:
-
-```bash
-# Get ALB DNS names
-terraform output basic_alb_endpoint
-terraform output path_based_alb_endpoint
-
-# Get NLB endpoint
-terraform output nlb_endpoint
-```
-
-## Architecture
-Internet → ALB/NLB → Target Groups → Backend Services
-
 ## Security Features
+
 - Security groups controlling ingress/egress
 - Health checks to ensure only healthy targets receive traffic
 - Support for HTTPS with SSL certificates (configure in your setup)
+
+## Provision Resources
+
+in the `examples/lambda_layer` directory, run the following `just` commands:
+
+```bash
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
+```
+
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
+```bash
+just destroy-apply
+```

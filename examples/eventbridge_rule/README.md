@@ -1,26 +1,29 @@
-# examples/eventbridge_rule
+# Deploy EventBridge Rules in AWS
 
-Deploy **** resources via Terraform.
+The example is used to demostrate the usage of EventBridge rules in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module    | Description              |
+| ---------------- | ------------------------ |
+| eventbridge_rule | Create EventBridge rules |
+
+## Provision Resources
+
+in the `examples/eventbridge_rule` directory, run the following `just` commands:
+
 ```bash
-just plan eventbridge_rule
-just apply eventbridge_rule
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output eventbridge_rule
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply eventbridge_rule
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/`

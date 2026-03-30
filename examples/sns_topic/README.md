@@ -1,26 +1,29 @@
-# examples/sns_topic
+# SNS Topic in AWS
 
-Deploy **sns_topic** resources via Terraform.
+The example is used to demostrate the usage of SNS Topic shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module | Description      |
+| ------------- | ---------------- |
+| sns_topic     | Create SNS Topic |
+
+## Provision Resources
+
+in the `examples/sns_topic` directory, run the following `just` commands:
+
 ```bash
-just plan sns_topic
-just apply sns_topic
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output sns_topic
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply sns_topic
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/sns_topic`

@@ -1,26 +1,29 @@
-# examples/lambda_function
+# Deploy Lambda Function in AWS
 
-Deploy **iam_role** resources via Terraform.
+The example is used to demostrate the usage of Lambda function shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module   | Description            |
+| --------------- | ---------------------- |
+| lambda_function | Create Lambda function |
+
+## Provision Resources
+
+in the `examples/lambda_function` directory, run the following `just` commands:
+
 ```bash
-just plan lambda_function
-just apply lambda_function
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output lambda_function
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply lambda_function
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/iam_role`

@@ -1,26 +1,31 @@
-# examples/s3_static_website
+# S3 Static Website in AWS
 
-Deploy **s3_static_website** resources via Terraform.
+The example is used to demostrate the usage of S3 Static Website shared module in AWS.
 
----
+The example uses the following shared modules:
 
-## Quick start
+| Shared Module     | Description              |
+| ----------------- | ------------------------ |
+| s3_static_website | Create S3 Static Website |
+
+Note: The example enables public access to the website, which is not a recommended practice in production. You need to setup a security tier in front of the S3 bucket to restrict access.
+
+## Provision Resources
+
+in the `examples/s3_static_website` directory, run the following `just` commands:
+
 ```bash
-just plan s3_static_website
-just apply s3_static_website
+# plan and apply resources
+just plan-apply
+
+# output resources
+just output
 ```
 
-## Show outputs
+## Clean up Resources
+
+For cost saving, please clean up the resources after the demo.
+
 ```bash
-just output s3_static_website
+just destroy-apply
 ```
-
-## Clean up
-```bash
-just destroy-apply s3_static_website
-```
-
----
-
-## Module used
-- Source: `../../shared-modules/s3_static_website`
