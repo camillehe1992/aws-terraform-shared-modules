@@ -17,6 +17,7 @@ provider "aws" {
   default_tags {
     tags = {
       Repository = "aws-terraform-shared-modules"
+      ManagedBy  = "terraform"
     }
   }
 }
