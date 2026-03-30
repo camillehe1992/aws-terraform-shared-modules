@@ -35,7 +35,7 @@ Use below code to create an IAM role in your Terraform infrastructure:
 
 ```hcl
 module "demo" {
-  source = "github.com/heyachao/aws-terraform-shared-modules//shared-modules/iam_role?ref=v0.0.1"
+  source = "git::https://github.com/heyachao/aws-terraform-shared-modules.git//shared-modules/iam_role?ref=v0.0.1"
   role_name   = "exmaple-iam-role"
 }
 
