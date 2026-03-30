@@ -1,6 +1,6 @@
 # API Gateway Module
 
-Creates AWS API Gateway REST APIs with methods, integrations, and deployment stages.
+Creates AWS API Gateway REST APIs from OpenAPI schema.
 
 <!-- BEGIN_TF_DOCS -->
 
@@ -40,4 +40,4 @@ Creates AWS API Gateway REST APIs with methods, integrations, and deployment sta
 | <a name="output_rest_api_id"></a> [rest\_api\_id](#output\_rest\_api\_id) | The ID of the API Gateway REST API |
 <!-- END_TF_DOCS -->
 ## Examples
-See [examples/api_gateway](../../examples/api_gateway)
+See [examples/serverless-api](../../examples/serverless-api)

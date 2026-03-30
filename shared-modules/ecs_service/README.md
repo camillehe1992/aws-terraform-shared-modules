@@ -1,6 +1,6 @@
 # ECS Service Module
 
-Creates AWS ECS services with integrated task definitions, supporting both Fargate and EC2 launch types.
+Creates AWS ECS services with task definitions, supporting both Fargate and EC2 launch types.
 
 <!-- BEGIN_TF_DOCS -->
 
