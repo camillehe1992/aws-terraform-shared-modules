@@ -50,6 +50,8 @@ A welcome page for NGINX service should be opened in the browser as follows. Now
 
 ## Clean up Resources
 
+For cost saving, please clean up the resources after the demo.
+
 ```bash
 just destroy-apply
 ```

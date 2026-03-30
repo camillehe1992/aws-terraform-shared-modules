@@ -5,6 +5,5 @@ module "template" {
 }
 
 output "greeting" {
-  description = "Greeting message"
-  value       = module.template.greeting
+  value = module.template.greeting
 }
