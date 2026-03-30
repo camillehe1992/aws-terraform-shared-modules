@@ -7,6 +7,11 @@ modules:
     description: "Creates AWS Security Groups with flexible ingress and egress rules. Supports CIDR blocks, IPv6, prefix lists, and referenced security groups."
     example_dir: examples/security_group
 
+  serverless_api:
+    title: "Serverless API Module"
+    description: "Creates a serverless API with Lambda Function and API Gateway."
+    example_dir: examples/serverless-api
+
   load_balancer:
     title: "Load Balancer Module"
     description: "Creates AWS Application Load Balancers (ALB) and Network Load Balancers (NLB) with target groups, listeners, and routing rules."

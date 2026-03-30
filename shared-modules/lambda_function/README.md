@@ -48,6 +48,7 @@ Creates AWS Lambda functions with IAM roles, environment variables, and CloudWat
 | <a name="output_function_arn"></a> [function\_arn](#output\_function\_arn) | The ARN of the Lambda function |
 | <a name="output_function_name"></a> [function\_name](#output\_function\_name) | The name of the Lambda function |
 | <a name="output_invoke_arn"></a> [invoke\_arn](#output\_invoke\_arn) | The ARN to be used for invoking the Lambda function from API Gateway |
+| <a name="output_log_group_arn"></a> [log\_group\_arn](#output\_log\_group\_arn) | The ARN of the CloudWatch Log Group |
 | <a name="output_log_group_name"></a> [log\_group\_name](#output\_log\_group\_name) | The name of the CloudWatch Log Group |
 <!-- END_TF_DOCS -->
 ## Examples
