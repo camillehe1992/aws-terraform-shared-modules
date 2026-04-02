@@ -4,7 +4,7 @@
 #       >> just plan iam_role
 #       >> just apply iam_rol
 # or only run
-#       >> just plan-apply iam_role
+#       >> just quick-apply iam_role
 
 # Project root directory (where the justfile is located)
 PROJECT_ROOT := `pwd`
@@ -110,13 +110,13 @@ output module-name=default_module:
     cd ${TF_DIR} && AWS_PROFILE=${PROFILE} terraform output -json | jq .
 
 # Plan and apply Terraform module
-plan-apply module-name=default_module:
+quick-apply module-name=default_module:
     #!/usr/bin/env bash
     just plan {{module-name}}
     just apply {{module-name}}
 
 # Plan and destroy Terraform module
-destroy-apply module-name=default_module:
+quick-destroy module-name=default_module:
     #!/usr/bin/env bash
     just plan-destroy {{module-name}}
     just apply {{module-name}}

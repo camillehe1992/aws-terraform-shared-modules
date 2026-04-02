@@ -10,10 +10,11 @@ resource "aws_cloudwatch_event_rule" "event_rule" {
 }
 
 resource "aws_cloudwatch_event_target" "event_target" {
-  rule     = aws_cloudwatch_event_rule.event_rule.name
-  role_arn = var.role_arn
-  arn      = var.target_arn
-  input    = var.input_transformer_specs == null ? var.rule_input : null
+  rule      = aws_cloudwatch_event_rule.event_rule.name
+  target_id = var.target_id
+  role_arn  = var.role_arn
+  arn       = var.target_arn
+  input     = var.input_transformer_specs == null ? var.rule_input : null
 
   dynamic "batch_target" {
     for_each = var.batch_target_specs != null ? [1] : []

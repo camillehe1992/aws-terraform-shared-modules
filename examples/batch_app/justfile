@@ -1,21 +1,19 @@
 # justfile - Task runner for Terraform workflows
 
-PROJECT_ROOT := `pwd`
 
 # Shell to use
-set shell := ["bash", "-uc"]
 set dotenv-load := true
 set fallback := true
 
-plan-apply:
+quick-apply:
 	#!/usr/bin/env bash
 	BATCH_DIR=$(basename $(pwd))
-	just plan-apply ${BATCH_DIR}
+	just quick-apply ${BATCH_DIR}
 
-destroy-apply:
+quick-destroy:
 	#!/usr/bin/env bash
 	BATCH_DIR=$(basename $(pwd))
-	just destroy-apply ${BATCH_DIR}
+	just quick-destroy ${BATCH_DIR}
 
 output:
 	#!/usr/bin/env bash

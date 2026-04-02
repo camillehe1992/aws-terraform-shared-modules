@@ -13,6 +13,7 @@ module "scheduled_rule" {
 }
 EOF
   }
+  target_id  = "scheduled-trigger-cw-log-group"
   target_arn = aws_cloudwatch_log_group.this.arn
 }
 

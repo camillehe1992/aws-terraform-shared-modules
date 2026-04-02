@@ -47,6 +47,11 @@ variable "is_enabled" {
 }
 
 # Event target variables
+variable "target_id" {
+  description = "The ID of the target, if missing, will generate a random, unique id"
+  type        = string
+  default     = null
+}
 variable "target_arn" {
   description = "The ARN of the target"
   type        = string

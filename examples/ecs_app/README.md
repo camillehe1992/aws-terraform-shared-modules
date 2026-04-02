@@ -35,7 +35,7 @@ In the `examples/ecs_app` directory, run the following `just` commands:
 
 ```bash
 # plan and apply ecs service resources
-just plan-apply
+just quick-apply
 
 # output ALB endpoint, and open the endpoint in browser
 just get-alb-endpoint
@@ -53,5 +53,5 @@ A welcome page for NGINX service should be opened in the browser as follows. Now
 For cost saving, please clean up the resources after the demo.
 
 ```bash
-just destroy-apply
+just quick-destroy
 ```

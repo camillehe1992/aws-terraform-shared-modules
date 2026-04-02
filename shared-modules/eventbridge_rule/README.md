@@ -32,6 +32,7 @@ Creates AWS EventBridge rules with targets for event-driven architectures.
 | <a name="input_sqs_target_specs"></a> [sqs\_target\_specs](#input\_sqs\_target\_specs) | The specifications for the SQS queue to send the message | <pre>object({<br/>    message_group_id = string<br/>  })</pre> | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | The key value pairs we want to apply as tags to the resources contained in this module | `map(string)` | `{}` | no |
 | <a name="input_target_arn"></a> [target\_arn](#input\_target\_arn) | The ARN of the target | `string` | n/a | yes |
+| <a name="input_target_id"></a> [target\_id](#input\_target\_id) | The ID of the target, if missing, will generate a random, unique id | `string` | `null` | no |
 ## Outputs
 
 | Name | Description |

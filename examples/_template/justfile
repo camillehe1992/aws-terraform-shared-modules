@@ -1,23 +1,20 @@
 # justfile - Task runner for Terraform workflows
 
-PROJECT_ROOT := `pwd`
-
 # Shell to use
-set shell := ["bash", "-uc"]
 set dotenv-load := true
 set fallback := true
 
-plan-apply:
+quick-apply:
 	#!/usr/bin/env bash
-	ECS_DIR=$(basename $(pwd))
-	just plan-apply ${ECS_DIR}
+	DIR=$(basename $(pwd))
+	just quick-apply ${DIR}
 
-destroy-apply:
+quick-destroy:
 	#!/usr/bin/env bash
-	ECS_DIR=$(basename $(pwd))
-	just destroy-apply ${ECS_DIR}
+	DIR=$(basename $(pwd))
+	just quick-destroy ${DIR}
 
 output:
 	#!/usr/bin/env bash
-	ECS_DIR=$(basename $(pwd))
-	just output ${ECS_DIR}
+	DIR=$(basename $(pwd))
+	just output ${DIR}

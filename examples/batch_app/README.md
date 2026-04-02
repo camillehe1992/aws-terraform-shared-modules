@@ -34,7 +34,7 @@ In the `examples/batch_app` directory, run the following `just` commands:
 
 ```bash
 # plan and apply batch resources
-just plan-apply
+just quick-apply
 
 # output batch resources
 just output
@@ -53,5 +53,5 @@ just submit fargate-job
 ## Clean up Resources
 
 ```bash
-just destroy-apply
+just quick-destroy
 ```

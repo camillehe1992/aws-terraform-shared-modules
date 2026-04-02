@@ -39,7 +39,7 @@ In the `examples/ecs_app` directory, run the following `just` commands:
 
 ```bash
 # plan and apply ecs service resources
-just plan-apply
+just quick-apply
 
 # output ecs service resources
 just output
@@ -49,5 +49,5 @@ just output
 
 ```bash
 # destroy ecs service resources
-just destroy-apply
+just quick-destroy
 ```

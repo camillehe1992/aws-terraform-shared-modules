@@ -124,8 +124,8 @@ __Terraform Recipes:__
 - `just apply <module-name>`: Apply Terraform module
 - `just validate <module-name>`: Validate Terraform module
 
-- `just plan-apply <module-name>`: Plan and apply Terraform module, equivalent to `just plan <module-name> && just apply <module-name>`
-- `just destroy-apply <module-name>`: Plan and destroy Terraform module, equivalent to `just plan-destroy <module-name> && just apply <module-name>`
+- `just quick-apply <module-name>`: Plan and apply Terraform module, equivalent to `just plan <module-name> && just apply <module-name>`
+- `just quick-destroy <module-name>`: Plan and destroy Terraform module, equivalent to `just plan-destroy <module-name> && just apply <module-name>`
 
 - `just fmt-all`: Format all Terraform files using `terraform fmt`
 - `just gen-docs`: Generate Terraform documentation using `terraform-docs`

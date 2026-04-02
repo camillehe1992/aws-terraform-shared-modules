@@ -18,7 +18,7 @@ in the `examples/dynamodb_table` directory, run the following `just` commands:
 
 ```bash
 # plan and apply resources
-just plan-apply
+just quick-apply
 
 # output resources
 just output
@@ -29,5 +29,5 @@ just output
 For cost saving, please clean up the resources after the demo.
 
 ```bash
-just destroy-apply
+just quick-destroy
 ```
