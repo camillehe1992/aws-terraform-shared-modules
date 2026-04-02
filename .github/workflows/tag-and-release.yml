@@ -30,6 +30,16 @@ jobs:
           default_bump: patch
           tag_prefix: v
           dry_run: ${{ inputs.dry_run }}
+          # Include additional commit types in changelog
+          custom_release_rules: |
+            chore:patch:Chores
+            docs:patch:Documentation
+            style:patch:Styles
+            refactor:patch:Code Refactoring
+            test:patch:Tests
+            build:patch:Build System
+            ci:patch:CI/CD
+            perf:patch:Performance Improvements
 
       - name: Create GitHub Release
         if: |
