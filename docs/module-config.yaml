@@ -86,3 +86,8 @@ modules:
     title: "SNS Topic Module"
     description: "Creates AWS SNS topics with subscriptions and delivery policies."
     example_dir: examples/sns_topic
+
+  sqs_queue:
+    title: "SQS Queue Module"
+    description: "Creates AWS SQS queues/FIFO with optional DLQ configuration. Supports HTTPS-only traffic and least privilege access."
+    example_dir: examples/sqs_queue

@@ -1,0 +1,20 @@
+# justfile - Task runner for Terraform workflows
+
+# Shell to use
+set dotenv-load := true
+set fallback := true
+
+quick-apply:
+	#!/usr/bin/env bash
+	DIR=$(basename $(pwd))
+	just quick-apply ${DIR}
+
+quick-destroy:
+	#!/usr/bin/env bash
+	DIR=$(basename $(pwd))
+	just quick-destroy ${DIR}
+
+output:
+	#!/usr/bin/env bash
+	DIR=$(basename $(pwd))
+	just output ${DIR}
