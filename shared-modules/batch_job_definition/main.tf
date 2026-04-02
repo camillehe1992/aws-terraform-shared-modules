@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "batch_job_definition"
+  })
+}
+
 data "aws_region" "current" {}
 
 resource "aws_batch_job_definition" "this" {
@@ -47,5 +53,5 @@ resource "aws_batch_job_definition" "this" {
     attempt_duration_seconds = var.timeout_minutes * 60
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }

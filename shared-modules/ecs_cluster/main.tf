@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "ecs_cluster"
+  })
+}
+
 # Create CloudWatch Log Group
 resource "aws_cloudwatch_log_group" "this" {
   count = var.log_configuration.enabled ? 1 : 0
@@ -5,7 +11,7 @@ resource "aws_cloudwatch_log_group" "this" {
   name              = "/ecs/${var.name}"
   retention_in_days = var.retention_in_days
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 resource "aws_ecs_cluster" "this" {
@@ -42,7 +48,7 @@ resource "aws_ecs_cluster" "this" {
     value = var.container_insights ? "enabled" : "disabled"
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 resource "aws_ecs_cluster_capacity_providers" "this" {

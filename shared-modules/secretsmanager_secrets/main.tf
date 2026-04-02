@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "secretsmanager_secrets"
+  })
+}
+
 data "aws_caller_identity" "current" {}
 data "aws_partition" "current" {}
 
@@ -27,7 +33,7 @@ resource "aws_secretsmanager_secret" "secrets" {
   recovery_window_in_days = var.recovery_window_in_days
   kms_key_id              = var.kms_key_id
   policy                  = coalesce(var.user_provided_policy, data.aws_iam_policy_document.default_policy.json)
-  tags                    = var.tags
+  tags                    = local.common_tags
 }
 
 resource "aws_secretsmanager_secret_version" "versions" {

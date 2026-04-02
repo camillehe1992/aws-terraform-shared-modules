@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "batch_job_queue"
+  })
+}
+
 resource "aws_batch_job_queue" "this" {
   name     = var.name
   state    = var.state
@@ -13,5 +19,5 @@ resource "aws_batch_job_queue" "this" {
 
   scheduling_policy_arn = var.scheduling_policy_arn
 
-  tags = var.tags
+  tags = local.common_tags
 }

@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "sns_topic"
+  })
+}
+
 data "aws_iam_policy_document" "allow_events_publish" {
   statement {
     effect  = "Allow"
@@ -34,7 +40,7 @@ resource "aws_sns_topic" "this" {
   }
 }
 EOF
-  tags            = var.tags
+  tags            = local.common_tags
 }
 
 resource "aws_sns_topic_policy" "allow_publish_policy" {

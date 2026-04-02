@@ -1,4 +1,7 @@
 locals {
+  common_tags = merge(var.tags, {
+    Module = "dynamodb_table"
+  })
   # Function to extract all attributes for a single table
   key_attributes = [
     {
@@ -69,5 +72,5 @@ resource "aws_dynamodb_table" "this" {
   stream_enabled   = var.stream_enabled
   stream_view_type = var.stream_enabled ? var.stream_view_type : null # Only if streams are enabled
 
-  tags = var.tags
+  tags = local.common_tags
 }

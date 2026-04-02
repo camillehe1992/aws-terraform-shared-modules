@@ -1,9 +1,10 @@
 locals {
   platform_type     = "multi-apps"
   current_timestamp = timestamp()
-  default_tags = {
+  common_tags = {
     Platform_Type = local.platform_type
     Platform      = "Amplify Infrastructure Management Platform"
+    Module        = "amplify_app"
   }
   build_spec = fileexists("${path.root}/build.yaml") ? "${path.root}/build.yaml" : "${path.module}/build.yaml"
   branch_config = {

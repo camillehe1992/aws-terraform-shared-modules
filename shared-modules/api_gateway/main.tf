@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "api_gateway"
+  })
+}
+
 data "aws_iam_policy_document" "default" {
   statement {
     effect = "Allow"
@@ -35,7 +41,7 @@ resource "aws_api_gateway_rest_api" "this" {
     types = var.endpoint_types
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # Deploy the API
@@ -79,5 +85,5 @@ resource "aws_cloudwatch_log_group" "this" {
   name              = "/aws/apigateway/${aws_api_gateway_rest_api.this.id}/${var.stage_name}"
   retention_in_days = var.retention_in_days
 
-  tags = var.tags
+  tags = local.common_tags
 }

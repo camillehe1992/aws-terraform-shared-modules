@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "eventbridge_rule"
+  })
+}
+
 resource "aws_cloudwatch_event_rule" "event_rule" {
   name                = var.rule_name
   description         = var.rule_description
@@ -6,7 +12,7 @@ resource "aws_cloudwatch_event_rule" "event_rule" {
   event_bus_name      = var.event_bus_name
   state               = var.is_enabled ? "ENABLED" : "DISABLED"
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 resource "aws_cloudwatch_event_target" "event_target" {

@@ -1,4 +1,7 @@
 locals {
+  common_tags = merge(var.tags, {
+    Module = "batch_compute_environment"
+  })
   is_fargate = var.compute_resources_type == "FARGATE_SPOT" || var.compute_resources_type == "FARGATE" ? true : false
 }
 
@@ -9,7 +12,7 @@ resource "aws_placement_group" "this" {
   partition_count = var.strategy == "partition" ? var.partition_count : null
   spread_level    = var.strategy == "spread" ? var.spread_level : null
   strategy        = var.strategy
-  tags            = var.tags
+  tags            = local.common_tags
 }
 
 resource "aws_batch_compute_environment" "this" {
@@ -57,5 +60,5 @@ resource "aws_batch_compute_environment" "this" {
     ]
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }

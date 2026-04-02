@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "security_group"
+  })
+}
+
 resource "aws_security_group" "this" {
   name        = var.name
   description = var.description
@@ -7,7 +13,7 @@ resource "aws_security_group" "this" {
     {
       Name = var.name
     },
-    var.tags
+    local.common_tags
   )
 }
 

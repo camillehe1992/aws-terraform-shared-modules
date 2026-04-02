@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "lambda_function"
+  })
+}
+
 # Archive the source code
 data "archive_file" "this" {
   type        = "zip"
@@ -53,7 +59,7 @@ resource "aws_lambda_function" "this" {
     mode = "Active" # Enable X-Ray tracing
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # Lambda Permission
@@ -71,5 +77,5 @@ resource "aws_lambda_permission" "this" {
 resource "aws_cloudwatch_log_group" "this" {
   name              = "/aws/lambda/${var.function_name}"
   retention_in_days = var.retention_in_days
-  tags              = var.tags
+  tags              = local.common_tags
 }

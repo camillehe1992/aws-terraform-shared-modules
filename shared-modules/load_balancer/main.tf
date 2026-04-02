@@ -1,6 +1,10 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "load_balancer"
+  })
+}
+
 # Application Load Balancer
-
-
 resource "aws_lb" "this" {
   name               = var.name
   internal           = var.internal
@@ -32,7 +36,7 @@ resource "aws_lb" "this" {
     }
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # Target Groups
@@ -76,7 +80,7 @@ resource "aws_lb_target_group" "this" {
 
   tags = merge(
     { Name = each.value.name },
-    var.tags
+    local.common_tags
   )
 }
 
@@ -117,7 +121,7 @@ resource "aws_lb_listener" "this" {
     }
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # Listener Rules (if provided)

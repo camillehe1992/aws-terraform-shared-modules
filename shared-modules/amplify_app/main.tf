@@ -20,7 +20,7 @@ resource "aws_amplify_app" "this" {
     target = "/index.html"
   }
 
-  tags = merge(local.default_tags, var.tags)
+  tags = merge(local.common_tags, var.tags)
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_branch
@@ -43,5 +43,5 @@ resource "aws_ssm_parameter" "secrets" {
   name  = each.key
   value = each.value
 
-  tags = merge(local.default_tags, var.tags)
+  tags = merge(local.common_tags, var.tags)
 }

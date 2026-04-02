@@ -1,3 +1,9 @@
+locals {
+  common_tags = merge(var.tags, {
+    Module = "iam_role"
+  })
+}
+
 data "aws_iam_policy_document" "assume_role_policy" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -20,7 +26,7 @@ resource "aws_iam_role" "role" {
   # If user_provided_assume_role_policy is not provided, use the default assume role policy
   assume_role_policy = coalesce(var.user_provided_assume_role_policy, data.aws_iam_policy_document.assume_role_policy.json)
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # IAM Role Policy Attachment
@@ -38,7 +44,7 @@ resource "aws_iam_policy" "customized_policy" {
   name   = "${var.role_name}-${each.key}"
   policy = each.value
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # IAM Customized Policy Attachment
@@ -56,5 +62,5 @@ resource "aws_iam_instance_profile" "role_profile" {
   name = aws_iam_role.role.name
   role = aws_iam_role.role.name
 
-  tags = var.tags
+  tags = local.common_tags
 }

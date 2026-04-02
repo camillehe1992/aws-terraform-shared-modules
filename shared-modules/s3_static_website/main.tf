@@ -1,4 +1,7 @@
 locals {
+  common_tags = merge(var.tags, {
+    Module = "s3_static_website"
+  })
   website_endpoint = "http://${aws_s3_bucket_website_configuration.this[0].website_endpoint}"
   bucket_arn       = aws_s3_bucket.this.arn
 }
@@ -7,7 +10,7 @@ locals {
 resource "aws_s3_bucket" "this" {
   bucket        = var.bucket_name
   force_destroy = var.force_destroy
-  tags          = var.tags
+  tags          = local.common_tags
 }
 
 resource "aws_s3_bucket_versioning" "this" {

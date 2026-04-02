@@ -1,12 +1,8 @@
 locals {
   # Common tags for all resources
-  common_tags = merge(
-    var.tags,
-    {
-      ManagedBy = "terraform"
-      Module    = "sqs_queue"
-    }
-  )
+  common_tags = merge(var.tags, {
+    Module = "sqs_queue"
+  })
 }
 
 # Create SQS Queue

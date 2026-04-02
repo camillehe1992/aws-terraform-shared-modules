@@ -1,6 +1,9 @@
 data "aws_region" "current" {}
 
 locals {
+  common_tags = merge(var.tags, {
+    Module = "ecs_service"
+  })
   awslogs_options = {
     "awslogs-group"         = "/aws/ecs/${var.service_name}"
     "awslogs-region"        = data.aws_region.current.id

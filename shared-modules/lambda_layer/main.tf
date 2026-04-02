@@ -1,4 +1,3 @@
-
 # Archive layer source code into zip file
 data "archive_file" "this" {
   type        = "zip"
