@@ -8,24 +8,25 @@ The repository contains a collection of reusable Terraform modules for AWS. Thes
 
 ## Available Shared Modules
 
-| Module Name                                                                       | Description                                             |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| [amplify_app](./shared-modules/amplify_app/README.md)                             | Create Amplify app with custom config                   |
-| [api_gateway](./shared-modules/api_gateway/README.md)                             | Create API Gateway with OpenAPI body [Regional or Edge] |
-| [batch_compute_environment](./shared-modules/batch_compute_environment/README.md) | Create Batch compute environment with Fargate or EC2    |
-| [batch_job_definition](./shared-modules/batch_job_definition/README.md)           | Create Batch job definition with container              |
-| [batch_job_queue](./shared-modules/batch_job_queue/README.md)                     | Create Batch job queue with priority                    |
-| [ecs_cluster](./shared-modules/ecs_cluster/README.md)                             | Create ECS cluster with Fargate or EC2                  |
-| [ecs_service](./shared-modules/ecs_service/README.md)                             | Create ECS service with task definition                 |
-| [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)                   | Create eventbridge rule with targets                    |
-| [iam_role](./shared-modules/iam_role/README.md)                                   | Create IAM role with policies                           |
-| [lambda_function](./shared-modules/lambda_function/README.md)                     | Create Lambda function with package                     |
-| [lambda_layer](./shared-modules/lambda_layer/README.md)                           | Create Lambda layer with package                        |
-| [load_balancer](./shared-modules/load_balancer/README.md)                         | Create Load Balancer with ALB or NLB                    |
-| [s3_static_website](./shared-modules/s3_static_website/README.md)                 | Create S3 bucket with static website hosting            |
-| [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md)         | Create secret with version                              |
-| [security_group](./shared-modules/security_group/README.md)                       | Create security group with rules                        |
-| [sns_topic](./shared-modules/sns_topic/README.md)                                 | Create SNS topic with subscription                      |
+| Module Name                                                                       | Description                                                  |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [amplify_app](./shared-modules/amplify_app/README.md)                             | Create Amplify app with custom config                        |
+| [api_gateway](./shared-modules/api_gateway/README.md)                             | Create API Gateway with OpenAPI body [Regional or Edge]      |
+| [batch_compute_environment](./shared-modules/batch_compute_environment/README.md) | Create Batch compute environment with Fargate or EC2         |
+| [batch_job_definition](./shared-modules/batch_job_definition/README.md)           | Create Batch job definition with container                   |
+| [batch_job_queue](./shared-modules/batch_job_queue/README.md)                     | Create Batch job queue with priority                         |
+| [dynamodb_table](./shared-modules/dynamodb_table/README.md)                       | Create DynamoDB table with optional global secondary indexes |
+| [ecs_cluster](./shared-modules/ecs_cluster/README.md)                             | Create ECS cluster with Fargate or EC2                       |
+| [ecs_service](./shared-modules/ecs_service/README.md)                             | Create ECS service with task definition                      |
+| [eventbridge_rule](./shared-modules/eventbridge_rule/README.md)                   | Create eventbridge rule with targets                         |
+| [iam_role](./shared-modules/iam_role/README.md)                                   | Create IAM role with policies                                |
+| [lambda_function](./shared-modules/lambda_function/README.md)                     | Create Lambda function with package                          |
+| [lambda_layer](./shared-modules/lambda_layer/README.md)                           | Create Lambda layer with package                             |
+| [load_balancer](./shared-modules/load_balancer/README.md)                         | Create Load Balancer with ALB or NLB                         |
+| [s3_static_website](./shared-modules/s3_static_website/README.md)                 | Create S3 bucket with static website hosting                 |
+| [secretsmanager_secret](./shared-modules/secretsmanager_secret/README.md)         | Create secret with version                                   |
+| [security_group](./shared-modules/security_group/README.md)                       | Create security group with rules                             |
+| [sns_topic](./shared-modules/sns_topic/README.md)                                 | Create SNS topic with subscription                           |
 
 ## Module Usage
 

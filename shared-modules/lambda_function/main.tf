@@ -4,6 +4,22 @@ data "archive_file" "this" {
   source_file = var.source_file
   source_dir  = var.source_dir
   output_path = var.output_path
+
+  # Exclude specific folders
+  excludes = [
+    "__pycache__",
+    ".pytest_cache",
+    "tests",
+    "test_*.py",
+    "*.pyc",
+    "*.pyo",
+    ".env",
+    "venv",
+    "env",
+    "node_modules",
+    ".git",
+    ".DS_Store"
+  ]
 }
 
 # Lambda function

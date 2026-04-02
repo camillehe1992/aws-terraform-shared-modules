@@ -27,6 +27,11 @@ modules:
     description: "Creates AWS Batch job queues for job scheduling and management."
     example_dir: examples/batch
 
+  dynamodb_table:
+    title: "DynamoDB Table Module"
+    description: "Creates AWS DynamoDB tables with optional global secondary indexes."
+    example_dir: examples/dynamodb_table
+
   ecs_cluster:
     title: "ECS Cluster Module"
     description: "Creates AWS ECS clusters for container orchestration."
