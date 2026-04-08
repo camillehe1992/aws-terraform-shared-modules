@@ -55,7 +55,7 @@ variable "global_secondary_indexes" {
     name = string
     key_schema = list(object({
       attribute_name = string
-      attribute_type = string
+      attribute_type = optional(string, "S")
       key_type       = string
     }))
     read_capacity      = optional(number, 1)
