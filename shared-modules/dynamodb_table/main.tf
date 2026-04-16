@@ -54,7 +54,7 @@ resource "aws_dynamodb_table" "this" {
       }
       read_capacity      = var.billing_mode == "PROVISIONED" ? global_secondary_index.value.read_capacity : null
       write_capacity     = var.billing_mode == "PROVISIONED" ? global_secondary_index.value.write_capacity : null
-      non_key_attributes = global_secondary_index.value.non_key_attributes
+      non_key_attributes = global_secondary_index.value.projection_type == "INCLUDE" ? global_secondary_index.value.non_key_attributes : null
       projection_type    = global_secondary_index.value.projection_type
     }
   }
